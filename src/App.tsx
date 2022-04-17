@@ -1,16 +1,14 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        حضور طراحی گرافیک Graphic Design در تبلیغات (تجاری، فرهنگی و...) به قدری
-        چشمگیر و اثربخش است که همواره از گرافیک به عنوان نخستین جلوه‌گاه عناصر
-        دیداری در تبلیغات یاد می‌شود. فرآیند تبلیغات به روش‌های مختلف هدف‌گذاری
-        و اجرا می‌شود. بسیاری از شاخص‌های فرهنگی، اجتماعی، سیاسی و آیینی... در
-        شکل‌گیری ساختار و تعیین محتوا و دستیابی به اهداف نهایی یک بسته تبلیغاتی
-        موثر هستند.
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <main></main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

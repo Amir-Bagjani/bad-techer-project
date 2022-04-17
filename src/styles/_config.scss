@@ -1,0 +1,25 @@
+//functions and mixins
+@mixin title-text($size) {
+    color: #333;
+    font-size: $size;
+}
+@mixin grap-text($size) {
+    color: #666;
+    font-size: $size;
+}
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
+}
+@mixin flex($val) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .box{
+        flex: 1 1 $val;
+    }
+}
