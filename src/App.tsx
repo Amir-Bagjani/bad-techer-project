@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        حضور طراحی گرافیک Graphic Design در تبلیغات (تجاری، فرهنگی و...) به قدری
+        چشمگیر و اثربخش است که همواره از گرافیک به عنوان نخستین جلوه‌گاه عناصر
+        دیداری در تبلیغات یاد می‌شود. فرآیند تبلیغات به روش‌های مختلف هدف‌گذاری
+        و اجرا می‌شود. بسیاری از شاخص‌های فرهنگی، اجتماعی، سیاسی و آیینی... در
+        شکل‌گیری ساختار و تعیین محتوا و دستیابی به اهداف نهایی یک بسته تبلیغاتی
+        موثر هستند.
+      </h1>
     </div>
   );
 }
