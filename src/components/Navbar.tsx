@@ -5,6 +5,7 @@ import "../styles/navbar.scss"
 const Navbar = () => {
   const location = useLocation()
   const [menuState,setMenuState] = useState(false);
+  const [theme,setTheme] = useState("light");
 
   const toggleMenu = () => {
     setMenuState(prev => !prev)
@@ -12,6 +13,18 @@ const Navbar = () => {
   const conditionCloseMenu = (e: React.MouseEvent<HTMLElement>) => {
     if(e.target === e.currentTarget) toggleMenu();
   }
+  const themeHandle = (e: React.MouseEvent<HTMLElement>) => {
+    if(theme === "light"){
+      document.documentElement.setAttribute('data-theme', 'dark');
+      setTheme('dark');
+    }else{
+      document.documentElement.removeAttribute('data-theme');
+      setTheme('light');
+    }
+  }
+  // const colorHandle = (e: React.MouseEvent<HTMLElement>) => {
+  //   document.documentElement.setAttribute('main-color', 'main-color');
+  // }
 
   useEffect(() => {
     if(window.innerWidth <= 768) setMenuState(false);
@@ -20,21 +33,25 @@ const Navbar = () => {
   return (
     <header className='header'>
 
-      <i className={`fas ${menuState ? `fa-times`:`fa-bars`} menu-bar`} onClick={toggleMenu}></i>
+      <div className="header-wrapper">
+        <i className={`fas ${menuState ? `fa-times`:`fa-bars`} menu-bar`} onClick={toggleMenu}></i>
 
-        <nav className={menuState ? 'navbar active' : 'navbar'} onClick={conditionCloseMenu}>
-            {/* <i className="fas fa-times" id="close-menu" onClick={closeMenu}></i> */}
-            {/* <img src="images/logo.jpeg" alt="bad-teacher-logo" className="img-logo" /> */}
-            <ul>
-                <li><Link to="/auth" id='register'>ثبت نام</Link></li>
-                <li><Link to="/auth">ورود</Link></li>
-                <li><Link to="/courses">دوره ها</Link></li>
-                <li><Link to="/pricing">تعرفه ها</Link></li>
-                <li><Link to="/aboutus">درباره ما</Link></li>
-            </ul>
-        </nav>
+        <i onClick={themeHandle} className={`far ${theme === 'light' ? "fa-moon" : "fa-sun"} theme`}></i>
+        {/* <button onClick={colorHandle}>color</button> */}
 
-        <Link to='/' className='logo'>BAD <span>TEACHER</span></Link>
+          <nav className={menuState ? 'navbar active' : 'navbar'} onClick={conditionCloseMenu}>
+              <ul>
+                  <li><Link to="/auth" id='register'>ثبت نام / ورود</Link></li>
+                  <li><Link to="/courses">دوره ها</Link></li>
+                  <li><Link to="/about-me">درباره من</Link></li>
+              </ul>
+          </nav>
+
+          <Link to='/' className='logo'>
+            <img src="images/logo.svg" alt="bad-teacher-logo" />
+          </Link>
+      </div>
+
     </header>
   )
 }
