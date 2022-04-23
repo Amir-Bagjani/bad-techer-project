@@ -1,16 +1,18 @@
 //functions and mixins
 @mixin title-text($size) {
-    color: #333;
+    color: var(--heading-color);
     font-size: $size;
+    font-weight: bold;
 }
 @mixin grap-text($size) {
-    color: #666;
+    color: var(--font-color);
     font-size: $size;
 }
 @mixin grid($val) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-    gap: 1.5rem;
+    row-gap: 8rem;
+    column-gap: 1.5rem;
 }
 @mixin flex($val) {
     display: flex;

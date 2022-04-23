@@ -1,0 +1,189 @@
+@import "config";
+
+%d-flex {
+  display: flex;
+  align-items: center;
+}
+
+#hero {
+  .hero {
+    @extend %d-flex;
+    flex-direction: row-reverse;
+
+    &-image {
+      flex: 1.5;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-content {
+      flex: 1;
+      padding: 2rem;
+
+      h5 {
+        @include title-text(3rem);
+        padding-bottom: 1.5rem;
+      }
+
+      p {
+        @include grap-text(1.7rem);
+        padding-bottom: 1.5rem;
+      }
+
+      a {
+        @extend %d-flex;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+  }
+}
+
+#courses {
+  background-color: var(--bg-primary-color);
+
+  .courses-container {
+    margin-top: 8rem;
+    @include grid(28rem);
+    
+    .box {
+      background-color: var(--bg-card-color);
+      border-radius: 2rem;
+      border: var(--border);
+      text-align: center;
+      transition: 0.2s linear;
+      
+      &:hover{
+        box-shadow: var(--box-shadow);
+      }
+      
+      & > img {
+        height: 10rem;
+        width: 10rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-top: -5rem;
+      }
+      
+      &-content {
+        padding: 2rem;
+        h5 {
+          @include title-text(2.3rem);
+          padding-bottom: 1.5rem;
+        }
+        
+        p {
+          @include grap-text(1.4rem);
+          padding-bottom: 1.5rem;
+        }
+      }
+      
+      &-footer {
+        @extend %d-flex;
+        flex-direction: row-reverse;
+        gap: .7rem;
+        border-top: var(--border);
+        padding: 1rem 2.5rem;
+        
+        & > img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        
+        .author-name {
+          margin-right: auto;
+          @include grap-text(1rem);
+        }
+          
+        .price {
+          @include grap-text(1.5rem);
+          border: 1px dashed var(--font-color);
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: var(--bg-color);
+        }
+      }
+    }
+  }
+  
+  .features-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .box{
+      @extend %d-flex;
+      gap: 1.5rem;
+      background-color: var(--bg-card-color);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      box-shadow: var(--box-shadow);
+
+      i{
+        font-size: 6rem;
+        color: var(--heading-color);
+      }
+
+      .content{
+        h3{
+          @include title-text(2rem);
+          padding-bottom: 1.5rem;
+        }
+        p{
+          @include grap-text(1.5rem);
+        }
+      }
+    }
+  }
+
+  .courses-btn{
+    text-align: center;
+    margin-top: 3rem;
+  }
+}
+
+#more-about-me{
+  .about-me{
+    @extend %d-flex;
+    gap: 6em;
+    & > div{
+      flex: 1;
+      img{
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 35rem;
+        height: auto;
+      }
+    }
+    p{
+      flex: 2;
+      @include grap-text(1.7rem);
+      line-height: 3rem;
+      span{
+        font-weight: bold;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    .hero {
+      flex-direction: column;
+
+      &-content {
+        text-align: center;
+      }
+    }
+  }
+  #more-about-me{
+    .about-me{
+      flex-direction: column;
+    }
+  }
+}
