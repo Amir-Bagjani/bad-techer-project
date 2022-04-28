@@ -157,30 +157,7 @@
   }
 }
 
-#more-about-me {
-  .about-me {
-    @extend %d-flex;
-    gap: 6em;
-    & > div {
-      flex: 1;
-      img {
-        border-radius: 0.5rem;
-        width: 100%;
-        max-width: 35rem;
-        height: auto;
-      }
-    }
-    p {
-      flex: 2;
-      @include grap-text(1.7rem);
-      line-height: 3rem;
-      span {
-        font-weight: bold;
-        font-size: 2rem;
-      }
-    }
-  }
-}
+
 
 #newsletter {
   background-color: var(--bg-primary-color);
