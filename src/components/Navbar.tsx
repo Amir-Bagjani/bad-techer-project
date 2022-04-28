@@ -5,7 +5,7 @@ import "../styles/navbar.scss"
 const Navbar = () => {
   const location = useLocation()
   const [menuState,setMenuState] = useState(false);
-  const [theme,setTheme] = useState("light");
+  const [theme,setTheme] = useState<"light" | "dark">("light");
 
   const toggleMenu = () => {
     setMenuState(prev => !prev)
@@ -13,7 +13,7 @@ const Navbar = () => {
   const conditionCloseMenu = (e: React.MouseEvent<HTMLElement>) => {
     if(e.target === e.currentTarget) toggleMenu();
   }
-  const themeHandle = (e: React.MouseEvent<HTMLElement>) => {
+  const themeHandle = () => {
     if(theme === "light"){
       document.documentElement.setAttribute('data-theme', 'dark');
       setTheme('dark');
@@ -29,6 +29,18 @@ const Navbar = () => {
   useEffect(() => {
     if(window.innerWidth <= 768) setMenuState(false);
   }, [location.pathname])
+
+  //system prefer theme
+  const query = window.matchMedia('(prefers-color-scheme: dark)')
+  useEffect(() => {
+    if(query.matches){
+      document.documentElement.setAttribute('data-theme', 'dark');
+      setTheme('dark');
+    }else{
+      document.documentElement.removeAttribute('data-theme');
+      setTheme('light');
+    }
+  }, [query.matches])
 
   return (
     <header className='header'>
