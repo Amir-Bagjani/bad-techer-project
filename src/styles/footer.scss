@@ -1,0 +1,110 @@
+@import "config";
+
+footer {
+  background: url(../../public/images/footer-wave.svg) no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding: 3rem;
+  //   @include title-text(2rem);
+  .footer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > img {
+      width: 13rem;
+    }
+
+    .networks {
+      .fa-youtube {
+        background-color: #cd201f;
+      }
+      .fa-instagram {
+        background: radial-gradient(
+          circle at 33% 100%,
+          #fed373 4%,
+          #f15245 30%,
+          #d92e7f 62%,
+          #9b36b7 85%,
+          #515ecf
+        );
+      }
+      .fa-telegram-plane {
+        background-color: #229ed9;
+      }
+      i {
+        margin-inline: 0.5rem;
+        font-size: 3rem;
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        border-radius: 50%;
+        color: #fff;
+      }
+    }
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    .box {
+      h3 {
+        color: var(--heading-color);
+        font-size: 3rem;
+        margin: 1.5rem 0;
+        text-decoration: underline;
+        text-underline-offset: 1rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        color: var(--heading-color);
+      }
+
+    //   a {
+    //     display: block;
+    //     font-size: 1.5rem;
+    //     padding: 0.5rem 0;
+    //     color: #eee;
+
+    //     &:hover {
+    //       text-decoration: underline;
+    //     }
+    //   }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        i {
+          width: 4.5rem;
+          height: 4.5rem;
+          line-height: 4.5rem;
+          margin: 0.5rem 0;
+          text-align: center;
+          color: var(--font-color);
+          font-size: 1.5rem;
+          background-color: var(--bg-primary-color);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .credit {
+    @include title-text(1.2rem);
+    text-align: center;
+  }
+}
+
+// @media (max-width: 768px) {
+//   footer .wrapper {
+//     padding: 2rem;
+//   }
+// }
