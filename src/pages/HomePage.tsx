@@ -26,27 +26,35 @@ const HomePage = () => {
             </Heading>
 
             <div className="features-container">
-                <div className="box">
-                    <i className="far fa-copyright"></i>
-                    <div className="content">
-                        <h3>دوره های اختصاصی</h3>
-                        <p>آکادمی Bad Teacher دوره های خودش رو با پشتیبانی و کیفیت بالا ارائه میده!</p>
+
+                <div className="feature-image">
+                    <img src="images/online-learning.svg" alt="online-learning" />
+                </div>
+
+                <div className="features-content">
+                    <div className="box">
+                        <i className="far fa-copyright"></i>
+                        <div className="content">
+                            <h3>دوره های اختصاصی</h3>
+                            <p>آکادمی Bad Teacher دوره های خودش رو با پشتیبانی و کیفیت بالا ارائه میده!</p>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <i className="far fa-gem"></i>
+                        <div className="content">
+                            <h3>دوره پولی و رایگان</h3>
+                            <p>فرقی نمکینه دوره پولی باشه یا رایگان، نهایت کیفیت رو در تدریس و پشتیبانی دوره ارائه میدم</p>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <i className="fas fa-crown"></i>
+                        <div className="content">
+                            <h3>اهمیت به زبان آموز</h3>
+                            <p> اولویت اول و آخر این آکادمی آموزش و رفع مشکلات دانشجوهاست.</p>
+                        </div>
                     </div>
                 </div>
-                <div className="box">
-                    <i className="far fa-gem"></i>
-                    <div className="content">
-                        <h3>دوره پولی و رایگان</h3>
-                        <p>فرقی نمکینه دوره پولی باشه یا رایگان، نهایت کیفیت رو در تدریس و پشتیبانی دوره ارائه میدم</p>
-                    </div>
-                </div>
-                <div className="box">
-                    <i className="fas fa-crown"></i>
-                    <div className="content">
-                        <h3>اهمیت به زبان آموز</h3>
-                        <p> اولویت اول و آخر این آکادمی آموزش و رفع مشکلات دانشجوهاست.</p>
-                    </div>
-                </div>
+
             </div>
 
             <Heading>
@@ -91,6 +99,16 @@ const HomePage = () => {
             <div><img src="images/photo-owner.jpeg" alt="bad-teacher-owner" /></div>
 
         </div>
+        </Section>
+
+        <Section id="newsletter">
+            <h3>اشتراک در خبر نامه</h3>
+            <p>برای اطلاع از آخرین دوره ها و آموزش های رایگان در خبرنامه آکادمی <span>Bad Teacher</span> عضو شوید.</p>
+
+            <form>
+                <input type="email" placeholder="ایمیل خود را وارد کنید" />
+                <input type="submit" value="ارسال" />
+            </form>
         </Section>
 
     </>

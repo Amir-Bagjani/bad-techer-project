@@ -1,16 +1,5 @@
 @import "config";
 
-* {
-  font-family: "Shabnam", Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  scroll-behavior: smooth;
-  list-style: none;
-}
-
 :root {
   --font-color: #555;
   --heading-color: #333;
@@ -22,7 +11,7 @@
   --main-color: #CD201F;
 
   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-  --max-width: 1200px;
+  --max-width: 120rem;
   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
   
 }
@@ -38,6 +27,16 @@
   --main-color: #FF5700;
 }
 
+* {
+  font-family: "Shabnam", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -46,12 +45,9 @@ body {
   background: var(--bg-color);
 }
 section {
-  padding: 10rem 2rem 2rem 2rem;
+  padding: 2rem;
+  padding-top: 10rem;
 }
-
-// footer {
-//   padding: 2rem 9%;
-// }
 i {
   cursor: pointer;
 }
@@ -63,14 +59,8 @@ a{
 //utilities
 .wrapper{
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin-inline: auto;
 }
-
-
-
-
-
-
 .heading {
   margin-bottom: 5rem;
 
@@ -85,7 +75,6 @@ a{
 
   }
 }
-
 .btn {
   display: inline-block;
   margin-top: 1rem;
@@ -103,11 +92,10 @@ a{
   }
 }
 
-/* Scrollbar width */
+//Scrollbar
 ::-webkit-scrollbar {
   width: 1rem;
 } 
-/* Scrollbar Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--font-color); 
   border-radius: 1rem;
@@ -118,21 +106,10 @@ a{
   html {
     font-size: 55%;
   }
-  // section {
-  //   padding: 7.5rem 3% 2rem 3%;
-  // }
-  footer {
-    padding: 2rem 9%;
-  }
 }
-
-// @media (max-width: 768px) {
-//   .md-hide{
-//     display: block;
-//   }
-// }
 @media (max-width: 450px) {
   html {
     font-size: 50%;
   }
 }
+

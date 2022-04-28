@@ -6,6 +6,7 @@
 }
 
 #hero {
+  padding-top: 2rem;
   .hero {
     @extend %d-flex;
     flex-direction: row-reverse;
@@ -46,18 +47,18 @@
   .courses-container {
     margin-top: 8rem;
     @include grid(28rem);
-    
+
     .box {
       background-color: var(--bg-card-color);
       border-radius: 2rem;
       border: var(--border);
       text-align: center;
       transition: 0.2s linear;
-      
-      &:hover{
+
+      &:hover {
         box-shadow: var(--box-shadow);
       }
-      
+
       & > img {
         height: 10rem;
         width: 10rem;
@@ -65,39 +66,39 @@
         border-radius: 0.5rem;
         margin-top: -5rem;
       }
-      
+
       &-content {
         padding: 2rem;
         h5 {
           @include title-text(2.3rem);
           padding-bottom: 1.5rem;
         }
-        
+
         p {
           @include grap-text(1.4rem);
           padding-bottom: 1.5rem;
         }
       }
-      
+
       &-footer {
         @extend %d-flex;
         flex-direction: row-reverse;
-        gap: .7rem;
+        gap: 0.7rem;
         border-top: var(--border);
         padding: 1rem 2.5rem;
-        
+
         & > img {
           width: 4rem;
           height: 4rem;
           border-radius: 50%;
           object-fit: cover;
         }
-        
+
         .author-name {
           margin-right: auto;
           @include grap-text(1rem);
         }
-          
+
         .price {
           @include grap-text(1.5rem);
           border: 1px dashed var(--font-color);
@@ -108,62 +109,72 @@
       }
     }
   }
-  
-  .features-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+
+  .features-container {
+    @extend %d-flex;
     gap: 2rem;
     margin-bottom: 3rem;
 
-    .box{
-      @extend %d-flex;
-      gap: 1.5rem;
-      background-color: var(--bg-card-color);
-      border-radius: 2rem;
-      padding: 1.5rem;
-      box-shadow: var(--box-shadow);
-
-      i{
-        font-size: 6rem;
-        color: var(--heading-color);
+    .feature-image {
+      flex: 1.1;
+      img {
+        width: 100%;
       }
+    }
 
-      .content{
-        h3{
-          @include title-text(2rem);
-          padding-bottom: 1.5rem;
+    .features-content {
+      flex: 0.8;
+      .box {
+        @extend %d-flex;
+        gap: 1.5rem;
+        background-color: var(--bg-card-color);
+        border-radius: 2rem;
+        padding: 1.5rem;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 2rem;
+
+        i {
+          font-size: 6rem;
+          color: var(--heading-color);
         }
-        p{
-          @include grap-text(1.5rem);
+
+        .content {
+          h3 {
+            @include title-text(2rem);
+            padding-bottom: 1.5rem;
+          }
+          p {
+            @include grap-text(1.5rem);
+          }
         }
       }
     }
   }
 
-  .courses-btn{
+  .courses-btn {
     text-align: center;
     margin-top: 3rem;
   }
 }
 
-#more-about-me{
-  .about-me{
+#more-about-me {
+  .about-me {
     @extend %d-flex;
     gap: 6em;
-    & > div{
+    & > div {
       flex: 1;
-      img{
+      img {
         border-radius: 0.5rem;
         width: 100%;
         max-width: 35rem;
         height: auto;
       }
     }
-    p{
+    p {
       flex: 2;
       @include grap-text(1.7rem);
       line-height: 3rem;
-      span{
+      span {
         font-weight: bold;
         font-size: 2rem;
       }
@@ -171,8 +182,61 @@
   }
 }
 
+#newsletter {
+  background-color: var(--bg-primary-color);
+  padding: 7rem 1rem;
+  text-align: center;
+
+  h3 {
+    @include title-text(3rem);
+  }
+
+  p {
+    @include grap-text(1.5rem);
+    width: 90%;
+    margin: 2rem auto;
+    span {
+      text-decoration: underline var(--main-color) 2px;
+    }
+  }
+
+  form {
+    border: 0.2rem solid var(--heading-color);
+    display: flex;
+    max-width: 70rem;
+    margin: 2rem auto;
+    border-radius: 5rem;
+    padding: 0.5rem;
+    height: 5.5rem;
+
+    input {
+      border-radius: 5rem;
+
+      &:first-child {
+        width: 100%;
+        background: none;
+        color: var(--font-color);
+        padding: 0 2rem;
+        font-size: 1.7rem;
+
+        &::placeholder {
+          color: var(--font-color);
+        }
+      }
+
+      &:last-child {
+        background-color: #eee;
+        padding: 0 2rem;
+        cursor: pointer;
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   #hero {
+    padding-top: 10rem;
     .hero {
       flex-direction: column;
 
@@ -181,9 +245,17 @@
       }
     }
   }
-  #more-about-me{
-    .about-me{
+  #more-about-me {
+    .about-me {
       flex-direction: column;
+    }
+  }
+  #courses {
+    .features-container {
+      flex-direction: column;
+      .features-content{
+        flex: 1;
+      }
     }
   }
 }
