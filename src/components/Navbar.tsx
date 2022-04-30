@@ -31,8 +31,8 @@ const Navbar = () => {
   }, [location.pathname])
 
   //system prefer theme
-  const query = window.matchMedia('(prefers-color-scheme: dark)')
   useEffect(() => {
+    const query = window.matchMedia('(prefers-color-scheme: dark)')
     if(query.matches){
       document.documentElement.setAttribute('data-theme', 'dark');
       setTheme('dark');
@@ -40,7 +40,7 @@ const Navbar = () => {
       document.documentElement.removeAttribute('data-theme');
       setTheme('light');
     }
-  }, [query.matches])
+  }, [])
 
   return (
     <header className='header'>

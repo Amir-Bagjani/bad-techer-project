@@ -32,7 +32,7 @@ const AboutPage = () => {
             برنامه ای پشتش نبود
           </p>
 
-          <form>
+          <form className="form">
                 <Heading>
                     <h2>ارتباط با من</h2>
                 </Heading>

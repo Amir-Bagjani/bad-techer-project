@@ -1,14 +1,14 @@
-import { BrowserRouter } from "react-router-dom";
-import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
-import Navbar from "./components/Navbar";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Layout />
-      <Footer />
+      <Routes>
+        <Route path="*" element={<Layout />} />
+        <Route path="/auth" element={<LoginPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

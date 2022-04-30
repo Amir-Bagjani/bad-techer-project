@@ -1,27 +1,93 @@
 //functions and mixins
 @mixin title-text($size) {
-    color: var(--heading-color);
-    font-size: $size;
-    font-weight: bold;
+  color: var(--heading-color);
+  font-size: $size;
+  font-weight: bold;
 }
 @mixin grap-text($size) {
-    color: var(--font-color);
-    font-size: $size;
+  color: var(--font-color);
+  font-size: $size;
 }
 @mixin grid($val) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-    row-gap: 8rem;
-    column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  row-gap: 8rem;
+  column-gap: 1.5rem;
 }
 @mixin flex($val) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 
-    .box{
-        flex: 1 1 $val;
+  // .box{
+  //     flex: 1 1 $val;
+  // }
+}
+
+@mixin form {
+  
+  padding: 2rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  background-color: var(--bg-card-color);
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .inputBox {
+    position: relative;    
+
+    i{
+        position: absolute;
+        top: 2.4rem;
+        left: 0.5rem;
+        font-size: 2rem;
+        color: var(--font-color);
     }
+
+    input,
+    textarea {
+      @include grap-text(1.7rem);
+      width: 100%;
+      background: none;
+      margin: 1.5rem 0;
+      padding: 0.5rem 0;
+      border-bottom: var(--border);
+
+      &:focus {
+        border-color: var(--main-color);
+        border-width: 2px;
+      }
+    }
+    textarea {
+      height: 10rem;
+      resize: none;
+    }
+
+    label {
+      @include grap-text(1.3rem);
+      position: absolute;
+      top: 1.7rem;
+      right: 0;
+      transition: 0.2s ease-in-out;
+    }
+
+    input:focus ~ label,
+    input:valid ~ label,
+    textarea:focus ~ label,
+    textarea:valid ~ label {
+      top: -0.5rem;
+      font-size: 1.4rem;
+      color: var(--font-color);
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    height: 5rem;
+  }
 }

@@ -3,7 +3,7 @@ import "../styles/footer.scss";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <div className="wrapper">
         <div className="footer-header">
           <img src="images/user.svg" alt="bad-teacher-logo" />

@@ -6,59 +6,15 @@
     gap: 6em;
     margin-bottom: 6rem;
 
-    & > form {
-        flex: 1;
-        align-self: center;
-        padding: 2rem 3rem;
-        border-radius: 0.5rem;
-        box-shadow: var(--box-shadow);
-        border:var(--border);
-        background-color: var(--bg-card-color);
-        
-        .heading {
-          margin-bottom: 0;
-        }
-  
-        .inputBox {
-          position: relative;
-  
-          input,
-          textarea {
-            @include grap-text(1.7rem);
-            width: 100%;
-            background: none;
-            margin: 1.5rem 0;
-            padding: 0.5rem 0;
-            border-bottom: var(--border);
-  
-            &:focus {
-              border-color: var(--main-color);
-              border-width: 2px;
-            }
-          }
-          textarea {
-            height: 10rem;
-            resize: none;
-          }
-  
-          label {
-            @include grap-text(1.7rem);
-            position: absolute;
-            top: 1.7rem;
-            right: 0;
-            transition: 0.2s ease-in-out;
-          }
-  
-          input:focus ~ label,
-          input:valid ~ label,
-          textarea:focus ~ label,
-          textarea:valid ~ label {
-            top: -0.5rem;
-            font-size: 1.4rem;
-            color: var(--font-color);
-          }
-        }
+    & > .form {
+      @include form;
+      flex: 1;
+      align-self: center;
+
+      .heading {
+        margin-bottom: 0;
       }
+    }
 
     p.text {
       flex: 2;
@@ -76,7 +32,7 @@
 @media (max-width: 768px) {
   #more-about-me {
     .about-me {
-      & > form{
+      & > form {
         width: 100%;
         max-width: 40rem;
       }
