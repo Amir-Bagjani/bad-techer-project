@@ -46,7 +46,7 @@
 
   .courses-container {
     margin-top: 8rem;
-    @include grid(28rem);
+    @include grid(28rem, 8rem);
 
     .box {
       background-color: var(--bg-card-color);

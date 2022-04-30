@@ -8,11 +8,11 @@
   color: var(--font-color);
   font-size: $size;
 }
-@mixin grid($val) {
+@mixin grid($val, $gap) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-  row-gap: 8rem;
-  column-gap: 1.5rem;
+  gap: 1.5rem;
+  row-gap: $gap;
 }
 @mixin flex($val) {
   display: flex;
