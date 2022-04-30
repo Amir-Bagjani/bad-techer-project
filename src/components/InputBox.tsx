@@ -14,12 +14,12 @@ const InputBox = <E extends React.ElementType = "input">({
   ...rest
 }: InputBoxProps<E>) => {
   const Tag = as || "input";
-  const tagRef = useRef<any>();
+  const tagRef = useRef<HTMLInputElement>(null !);
   const [showPass, setShowPass] = useState(false)
 
   const handleShowPass = () => {
     if(!showPass) {
-      tagRef.current.type = "text";
+      tagRef.current.type = "text" ;
       setShowPass(true)
     }else{
       tagRef.current.type = "password";
