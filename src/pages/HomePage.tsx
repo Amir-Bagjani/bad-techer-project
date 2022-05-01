@@ -9,7 +9,7 @@ const HomePage = () => {
         <Section id="hero">
             <div className="hero">
                 <div className="hero-image">
-                    <img src="images/logo-hero.svg" alt="bad-teacher-hero" />
+                    <img src="/images/logo-hero.svg" alt="bad-teacher-hero" />
                 </div>
                 <div className="hero-content">
                     <h5>زبان انگلیسی با سینا</h5>
@@ -28,7 +28,7 @@ const HomePage = () => {
             <div className="features-container">
 
                 <div className="feature-image">
-                    <img src="images/online-learning.svg" alt="online-learning" />
+                    <img src="/images/online-learning.svg" alt="online-learning" />
                 </div>
 
                 <div className="features-content">

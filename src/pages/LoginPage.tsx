@@ -7,7 +7,7 @@ const LoginPage = () => {
     <main id="login-page">
 
         <header className="login-header">
-          <Link to="/"><img src="images/logo-hero.svg" alt="bad-teacher-logo" /></Link>
+          <Link to="/"><img src="/images/logo-hero.svg" alt="bad-teacher-logo" /></Link>
         </header>
 
         <div className="login-wrapper">
@@ -28,7 +28,7 @@ const LoginPage = () => {
               <a className="create-account" href="#">اکانت جدید بسازید</a>
 
               <button className="google-btn">
-                <img src="images/google.svg" alt="google-image" />
+                <img src="/images/google.svg" alt="google-image" />
                 ورود با اکانت گوگل
               </button>
             </form>

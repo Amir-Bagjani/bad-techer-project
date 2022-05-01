@@ -60,7 +60,7 @@ const Navbar = () => {
           </nav>
 
           <Link to='/' className='logo'>
-            <img src="images/logo.svg" alt="bad-teacher-logo" />
+            <img src="/images/logo.svg" alt="bad-teacher-logo" />
           </Link>
       </div>
 

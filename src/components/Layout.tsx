@@ -16,7 +16,6 @@ const Layout = () => {
         <Route path="courses" element={<CoursesPage />} />
         <Route path="courses:id" element={<CourseDetailPage />} />
       </Routes>
-      {/* <Outlet /> */}
       <Footer />
     </main>
   );

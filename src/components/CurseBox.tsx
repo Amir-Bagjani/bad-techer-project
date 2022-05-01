@@ -1,7 +1,7 @@
 const CurseBox = () => {
   return (
     <div className="box">
-      <img src="images/course.jpg" alt="course-image" />
+      <img src="/images/course.jpg" alt="course-image" />
       <div className="box-content">
         <h5>دوره Node.js نود جی اس</h5>
         <p>
@@ -10,7 +10,7 @@ const CurseBox = () => {
         </p>
       </div>
       <div className="box-footer">
-        <img src="images/user.svg" alt="user" />
+        <img src="/images/user.svg" alt="user" />
         <span className="author-name">Bad Teacher (Sina)</span>
         <span className="price ">150 $</span>
       </div>
