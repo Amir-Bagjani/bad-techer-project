@@ -5,7 +5,7 @@ import "../styles/coursesPage.scss";
 
 const popularCourse = { id: 1, image: "images/course-img1.gif", title: "دوره Node.js نود جی اس", body: "آموزش کاربردی نود جی اس در این دوره به آموزش پیاده سازی نود جی اس و پیاده سازی یک نرم افزار تحت وب کامل میپردازیم" }
 
-const data = [
+const datas = [
     {id: 1, image: "images/course-img2.jpg", title: "آموزش کامل ری اکت react و Redux", body: "آموزش ری اکت و ریداکس از صفر این آموزش برای افرادی است که میخواهند شروع به برنامه نویسی فرانت اند (Front-End) کنند و آماده بازار کار شوند."},
     {id: 2, image: "images/course-img3.jpeg", title: "دیپلوی Node.jsلینوکس با استفاده از NGINX" ,body: "در دوره دیپلوی Node.js روی لینوکس با استفاده از NGINX یاد میگیریم که چگونه اپلیکیشن های نود جی اسی را روی لینوکس دپلوی کنیم و ساز و کار NGINX به چه صورت میباشد." },
     {id: 3, image: "images/course-img4.png", title: "دوره سوکت Socket.io", body: "امروزه در خیلی از وبسایت ها و اپ ها میبینیم که کاربران با پشتیبانی یا یکدیگر بصورت تکی یا گروهی صحبت (چت) میکنند و در تماس هستند و یا وبسایت هایی را میبینیم که بصورت زنده نتایج مسابقات، ارز و... را نشان میدهند."},
@@ -21,7 +21,7 @@ const CoursesPage = () => {
       <Heading><h2> دوره های آموزشی</h2></Heading>
 
       <div className="courses-popular">
-          <div className="boxx">
+          <div className="course-box">
               <div className="image">
                   <img src="images/course-img1.gif" alt="course" />
               </div>
@@ -34,7 +34,9 @@ const CoursesPage = () => {
       </div>
 
       <div className="courses-container">
-        <CourseBoxNew items={data} />       
+        {datas.map((data) => (
+          <CourseBoxNew data={data} key={data.id} />       
+        ))}
       </div>
 
     </Section>

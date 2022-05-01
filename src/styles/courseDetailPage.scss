@@ -1,5 +1,177 @@
 @import "config";
 
-#course-detail-page{
-    
+#course-detail-page {
+  .course-detail-page-header {
+    & > .course-box {
+      @include course-box;
+      @media (max-width: 672px) {
+        height: unset;
+      }
+      @media (max-width: 450px) {
+        .image {
+          img {
+            height: 25rem;
+          }
+        }
+      }
+    }
+  }
+
+  .course-detail-page {
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+    margin-top: 5rem;
+
+    &-sidebar {
+      flex: 3;
+      max-height: 70vh;
+      overflow-y: auto;
+      &-price {
+        margin-bottom: 1rem;
+        border-radius: 0.2rem;
+        border: var(--border);
+        background-color: var(--bg-secondary-color);
+        display: flex;
+        flex-direction: column;
+
+        & > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+          margin-bottom: 3rem;
+          background-color: var(--bg-primary-color);
+          @include title-text(1.5rem);
+
+          i {
+            font-size: 3rem;
+          }
+        }
+
+        & > button {
+          align-self: center;
+          width: 80%;
+          color: #fff;
+          background-color: var(--main-color);
+          padding: 1.2rem;
+          font-weight: bold;
+          border-radius: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        & > p {
+          text-align: center;
+          border-top: var(--border);
+          padding: 3rem 0;
+          @include grap-text(1.2rem);
+        }
+      }
+      &-video-list {
+        position: relative;
+        border-radius: 0.2rem;
+        border: var(--border);
+        box-shadow: var(--box-shadow);
+        background-color: var(--bg-secondary-color);
+        overflow-y: auto;
+
+        & > h3 {
+          @include title-text(1.5rem);
+          padding: 2rem;
+          background-color: var(--bg-primary-color);
+          margin-bottom: 0.2rem;
+        }
+
+        #collaps {
+          display: none;
+        }
+
+        & > ul {
+          li {
+            display: flex;
+            align-items: center;
+            padding: 1.6rem 2rem;
+            font-weight: bold;
+            @include grap-text(1.4rem);
+
+            i.fa-youtube {
+              font-size: 1.7rem;
+              margin-left: 1rem;
+              color: var(--main-color);
+            }
+            i.fa-lock {
+              margin-right: 0.5rem;
+              margin-top: -0.5rem;
+            }
+            span {
+              width: 3rem;
+              height: 3rem;
+              text-align: center;
+              line-height: 3rem;
+              border-radius: 50%;
+              border: var(--border);
+              margin-left: 1.4rem;
+            }
+
+            & > button {
+              margin-right: auto;
+              color: var(--font-color);
+              background-color: transparent;
+              font-weight: bold;
+            }
+            &:hover {
+              background-color: var(--bg-primary-color);
+            }
+          }
+        }
+      }
+    }
+
+    &-content {
+      flex: 7;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #course-detail-page {
+    .course-detail-page {
+      flex-direction: column-reverse;
+      &-sidebar {
+        max-height: unset;
+        width: 100%;
+        max-width: 80rem;
+        margin-inline: auto;
+
+        &-video-list {
+          #collaps {
+            display: block;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            @include title-text(2rem);
+            transition: all 0.3s ease;
+
+            &.active{
+              transform: rotate(180deg);
+            }
+          }
+
+          & > ul{
+            display: none;
+            clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+            transition: all 0.3s ease;
+
+            &.active {
+              clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+              display: block;
+            }
+          }
+        }
+      }
+      &-content {
+        width: 100%;
+      }
+    }
+  }
 }

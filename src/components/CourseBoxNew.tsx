@@ -1,30 +1,29 @@
-interface Item {
+interface Data {
   id: number;
   image: string;
   title: string;
   body: string;
 }
-
-interface CourseCardProps {
-  items: Item[];
+interface CourseBoxNewProps {
+  data: Data;
+  h4?: string;
 }
 
-const CourseBoxNew = ({ items }: CourseCardProps) => {
+const CourseBoxNew = ({ data, h4 }: CourseBoxNewProps) => {
   return (
-    <>
-      {items.map((item) => (
-        <div className="boxx" key={item.id}>
-          <div className="image">
-            <img src={item.image} alt="course" />
-          </div>
-          <div className="content">
-            <h3>{item.title}</h3>
-            <p>{item.body.slice(0, 80)} ...</p>
-            <button className="content-btn">بیشتر</button>
-          </div>
+    <div className="course-box">
+      <div className="image">
+        <img src={data.image} alt="course" />
+      </div>
+      <div className="content">
+        <div>
+          <h3>{data.title}</h3>
+          <h4>{h4}</h4>
         </div>
-      ))}
-    </>
+        <p>{h4 ? data.body : data.body.slice(0, 80)} </p>
+        {!h4 && <button className="content-btn">بیشتر</button>}
+      </div>
+    </div>
   );
 };
 
