@@ -10,7 +10,7 @@ const CurseBox = () => {
         </p>
       </div>
       <div className="box-footer">
-        <img src="/images/user.svg" alt="user" />
+        <img src="/images/userr.svg" alt="user" />
         <span className="author-name">Bad Teacher (Sina)</span>
         <span className="price ">150 $</span>
       </div>

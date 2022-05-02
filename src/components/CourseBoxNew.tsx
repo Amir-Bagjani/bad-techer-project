@@ -20,7 +20,8 @@ const CourseBoxNew = ({ data, h4 }: CourseBoxNewProps) => {
           <h3>{data.title}</h3>
           <h4>{h4}</h4>
         </div>
-        <p>{h4 ? data.body : data.body.slice(0, 80)} </p>
+        {h4 && <p>{data.body} </p>}
+        {!h4 && <p className="active">{data.body} </p>}
         {!h4 && <button className="content-btn">بیشتر</button>}
       </div>
     </div>

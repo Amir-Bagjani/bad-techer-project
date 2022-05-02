@@ -7,7 +7,7 @@ const LoginPage = () => {
     <main id="login-page">
 
         <header className="login-header">
-          <Link to="/"><img src="/images/logo-hero.svg" alt="bad-teacher-logo" /></Link>
+          {/* <Link to="/"><img src="/images/logo-hero.svg" alt="bad-teacher-logo" /></Link> */}
         </header>
 
         <div className="login-wrapper">

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap&text012345689');
 @import "config";
 
 :root {
@@ -7,10 +8,8 @@
   --bg-secondary-color: #fff;
   --bg-primary-color: #e5e5e5;
   --bg-card-color: #fff;
-
-  // --main-color: #cd201f;
   --main-color: #BD081C;
-  
+  --bad-teacher-font: "Oswald";
   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   --max-width: 120rem;
   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
@@ -30,7 +29,7 @@
 }
 
 * {
-  font-family: "Shabnam", Arial, Helvetica, sans-serif;
+  // font-family: "IRANSans", Arial, Helvetica, sans-serif, "IRANSans";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -77,6 +76,7 @@ a {
   }
 }
 .btn {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
   display: inline-block;
   margin-top: 1rem;
   padding: 0.8rem 3rem;

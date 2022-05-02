@@ -1,6 +1,8 @@
 @import "config";
 
 #course-detail-page {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary-color);
   .course-detail-page-header {
     & > .course-box {
       @include course-box;
@@ -50,6 +52,7 @@
         }
 
         & > button {
+          font-family: "IRANSans", Arial, Helvetica, sans-serif;
           align-self: center;
           width: 80%;
           color: #fff;
@@ -79,7 +82,6 @@
           @include title-text(1.5rem);
           padding: 2rem;
           background-color: var(--bg-primary-color);
-          margin-bottom: 0.2rem;
         }
 
         #collaps {
@@ -87,11 +89,13 @@
         }
 
         & > ul {
+          margin-top: 0.2rem;
           li {
             display: flex;
             align-items: center;
             padding: 1.6rem 2rem;
             font-weight: bold;
+            cursor: pointer;
             @include grap-text(1.4rem);
 
             i.fa-youtube {
@@ -114,6 +118,7 @@
             }
 
             & > button {
+              font-family: "IRANSans", Arial, Helvetica, sans-serif;
               margin-right: auto;
               color: var(--font-color);
               background-color: transparent;
@@ -152,12 +157,12 @@
             @include title-text(2rem);
             transition: all 0.3s ease;
 
-            &.active{
+            &.active {
               transform: rotate(180deg);
             }
           }
 
-          & > ul{
+          & > ul {
             display: none;
             clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
             transition: all 0.3s ease;

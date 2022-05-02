@@ -7,15 +7,10 @@ const HomePage = () => {
   return (
     <>
         <Section id="hero">
-            <div className="hero">
-                <div className="hero-image">
-                    <img src="/images/logo-hero.svg" alt="bad-teacher-hero" />
-                </div>
-                <div className="hero-content">
-                    <h5>زبان انگلیسی با سینا</h5>
-                    <p>این جا یاد میگیرید چطوری برنامه نویس خوبی بشید نه اینکه فقط برنامه بنویسید</p>
-                    <a href="#courses" className="btn">مشاهده دوره ها  <i className="fas fa-arrow-down"></i></a>
-                </div>
+            <div className="hero-content">
+                <h1><span> آکادمی زبان </span> <br /> BAD TEACHER</h1>
+                <p>این جا یاد میگیرید چطوری برنامه نویس خوبی بشید نه اینکه فقط برنامه بنویسید</p>
+                <a href="#courses" className="">مشاهده دوره ها </a>
             </div>
         </Section>
 

@@ -13,11 +13,11 @@ const popularCourse = {
 const CourseDetailPage = () => { 
   const [showList, setShowList] = useState(false);
   const width = useRef<number>(0);
-
+  
   const handleShowList = () => {
     if(width.current <= 1000) setShowList(prev => !prev);
   }
-
+  
   useEffect(() => {
     window.addEventListener('resize',() => width.current = window.innerWidth);
 

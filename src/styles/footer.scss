@@ -1,80 +1,74 @@
 @import "config";
 
-.footer {
-  background: url(../../public/images/footer-wave.svg) no-repeat;
-  background-position: bottom;
-  background-size: cover;
+.dark {
+  --font-color: #bbbbbb;
+  --heading-color: #e8e8e8;
+  --bg-color: #212121;
+  --bg-secondary-color: #191919;
+  --bg-primary-color: #2e2e2e;
+  --bg-card-color: #424242;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.2);
+}
+
+%d-flex {
+  display: flex;
+  align-items: center;
+}
+%center {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.footer.dark {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
   padding: 3rem;
   .footer-header {
-    display: flex;
-    align-items: center;
+    @extend %d-flex;
     justify-content: space-between;
 
     & > img {
-      width: 13rem;
+      width: 19rem;
     }
 
     .networks {
-      .fa-youtube {
-        background-color: #cd201f;
-      }
-      .fa-instagram {
-        background: radial-gradient(
-          circle at 33% 100%,
-          #fed373 4%,
-          #f15245 30%,
-          #d92e7f 62%,
-          #9b36b7 85%,
-          #515ecf
-        );
-      }
-      .fa-telegram-plane {
-        background-color: #229ed9;
-      }
       i {
+        @extend %center;
         margin-inline: 0.5rem;
-        font-size: 3rem;
-        width: 5rem;
-        height: 5rem;
-        line-height: 5rem;
-        text-align: center;
-        border-radius: 50%;
-        color: #fff;
+        background-color: var(--heading-color);
+        color: var(--bg-card-color);
       }
     }
   }
 
   .footer-content {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
     margin-bottom: 3rem;
-    
+
     .box {
       h3 {
-        color: var(--heading-color);
-        font-size: 3rem;
+        @include title-text(2rem);
         margin: 1.5rem 0;
         text-decoration: underline;
         text-underline-offset: 1rem;
       }
 
       p {
-        font-size: 1.5rem;
+        @include grap-text(1.4rem);
         padding: 0.5rem 0;
-        color: var(--heading-color);
       }
 
       a {
+        @include grap-text(1.4rem);
         display: block;
-        font-size: 1.5rem;
         padding: 0.5rem 0;
-        color: var(--heading-color);
 
         &:hover {
           text-decoration: underline;
@@ -82,30 +76,24 @@
       }
 
       .info {
-        display: flex;
-        align-items: center;
+        @extend %d-flex;
         gap: 1rem;
 
         i {
-          width: 4.5rem;
-          height: 4.5rem;
-          line-height: 4.5rem;
+          @extend %center;
           margin: 0.5rem 0;
-          text-align: center;
           color: var(--font-color);
-          font-size: 1.5rem;
           background-color: var(--bg-primary-color);
-          border-radius: 50%;
         }
       }
 
-      &.about{
+      &.about {
         flex: 2 1 30rem;
       }
-      &.contact{
+      &.contact {
         flex: 1 1 25rem;
       }
-      &.links{
+      &.links {
         flex: 1 1 25rem;
       }
     }

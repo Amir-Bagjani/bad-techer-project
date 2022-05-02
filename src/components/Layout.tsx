@@ -1,5 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
-import AboutPage from "../pages/AboutPage";
+import { Routes, Route } from "react-router-dom";
 import CoursesPage from "../pages/CoursesPage";
 import HomePage from "../pages/HomePage";
 import CourseDetailPage from "../pages/CourseDetailPage";
@@ -12,9 +11,8 @@ const Layout = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="about-me" element={<AboutPage />} />
         <Route path="courses" element={<CoursesPage />} />
-        <Route path="courses:id" element={<CourseDetailPage />} />
+        <Route path="courses/:id" element={<CourseDetailPage />} />
       </Routes>
       <Footer />
     </main>
