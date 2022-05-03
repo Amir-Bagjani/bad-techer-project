@@ -147,12 +147,13 @@
     }
   }
 
-  @media (max-width: 672px) {
-    height: 18rem;
+  &.active{
+    @media (max-width: 678px) {
+      flex-direction: column;
+    }
   }
 
   @media (max-width: 450px) {
-    height: unset;
     flex-direction: column;
     .image {
       flex: 1;

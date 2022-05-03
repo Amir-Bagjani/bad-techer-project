@@ -11,7 +11,7 @@ interface CourseBoxNewProps {
 
 const CourseBoxNew = ({ data, h4 }: CourseBoxNewProps) => {
   return (
-    <div className="course-box">
+    <div className={h4 ? "course-box active" : "course-box"}>
       <div className="image">
         <img src={data.image} alt="course" />
       </div>

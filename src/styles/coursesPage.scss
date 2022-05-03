@@ -11,7 +11,7 @@
     width: 65%;
     margin-inline: auto;
 
-    & > .course-box {
+    & > * {
       @include course-box;
       box-shadow: 0 0 0 3px var(--main-color);
     }
@@ -21,7 +21,7 @@
     @include grid(35rem, 3rem);
     margin-top: 10rem;
 
-    & > .course-box {
+    & > * {
       @include course-box;
       &:hover {
         transform: translateY(-0.2rem);

@@ -38,7 +38,6 @@ const Navbar = () => {
     window.scrollTo(0,0)
   }, [location.pathname]);
 
-
   //system prefer theme
   // useEffect(() => {
   //   const query = window.matchMedia("(prefers-color-scheme: dark)");

@@ -13,7 +13,7 @@ const LoginPage = () => {
         <div className="login-wrapper">
 
             <form className="form">
-              <h1>ورود به آکادمی Bad Teacher</h1>
+              <h1>ورود به آکادمی <br /> Bad Teacher</h1>
               <InputBox as="input" label="ایمیل" type="email" required />
               <InputBox as="input" className="input-password" label="رمز ورود" type="password" required />
               <div className="links">
