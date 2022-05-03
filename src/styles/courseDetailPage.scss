@@ -2,7 +2,6 @@
 
 #course-detail-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
-  background-color: var(--bg-primary-color);
   .course-detail-page-header {
     & > .course-box {
       @include course-box;

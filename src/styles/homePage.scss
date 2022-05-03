@@ -7,6 +7,7 @@
 
 #hero {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  padding-top: 0 !important;
   position: relative;
   z-index: 1;
   min-height: 100vh;
@@ -179,7 +180,7 @@
 
 #newsletter {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
-  background-color: var(--bg-primary-color);
+  // background-color: var(--bg-primary-color);
   padding: 7rem 1rem;
   text-align: center;
 
@@ -222,7 +223,8 @@
       }
 
       &:last-child {
-        background-color: #eee;
+        background-color: var(--bg-primary-color);
+        color: var(--font-color);
         padding: 0 2rem;
         cursor: pointer;
         font-size: 1.7rem;

@@ -12,13 +12,20 @@
     background-color: var(--bg-secondary-color);
     box-shadow: var(--box-shadow);
     .header-wrapper {
+      .logo {
+        img {
+          width: 6.5rem;
+          height: 6.5rem;
+        }
+      }
       a#register {
         color: var(--heading-color);
       }
 
-      i.theme,
       i.menu-bar {
         color: var(--heading-color);
+        font-size: 3rem;
+        font-weight: bold;
       }
       .navbar {
         ul {
@@ -59,8 +66,9 @@
     .logo {
       margin-right: auto;
       img {
-        width: 6.5rem;
-        height: 6.5rem;
+        transition: all 0.2s ease;
+        width: 9rem;
+        height: 9rem;
         object-fit: cover;
       }
     }
@@ -70,12 +78,12 @@
         display: flex;
 
         &:first-child {
-          span{
+          span {
             display: none;
           }
         }
 
-         li > * {
+        li > * {
           font-size: 1.6rem;
           color: #fff;
           margin-left: 2rem;
@@ -89,22 +97,31 @@
       }
     }
 
-    .menu-bar {
-      display: none;
-    }
-
     i.menu-bar {
-      font-size: 2rem;
+      display: none;
+      font-size: 3rem;
       font-weight: bold;
       border-radius: 0.5rem;
       color: #fff;
     }
+
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 3rem 5%;
+    padding: 4.5rem 5%;
+
+    &.active{
+      .header-wrapper {
+        .logo{
+          img{
+            width: 9.5rem;
+            height: 9.5rem;
+          }
+        }
+      }
+    }
 
     .header-wrapper {
       gap: 2rem;
@@ -115,6 +132,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        img {
+          width: 9.5rem;
+          height: 9.5rem;
+        }
       }
 
       .navbar {
@@ -123,7 +145,7 @@
         right: 0;
         left: 0;
         height: 100vh;
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(2px);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: all 0.2s ease;
 
@@ -138,21 +160,21 @@
           overflow-y: auto;
 
           &:first-child {
-            border-top: 2px solid var(--bg-secondary-color);
-            span{
+            border-top: 1px solid var(--bg-secondary-color);
+            span {
               display: inline-block;
               margin-right: 0.5rem;
-              margin-top: -5px;
             }
           }
 
           li > * {
             display: block;
             color: var(--heading-color);
-            padding: 2rem 3.5rem 2rem;
+            padding: 2rem 3.5rem;
             width: 100%;
             font-weight: bold;
-            font-size: 2rem;
+            font-size: 1.7rem;
+            border-bottom: var(--border);
             &:hover {
               text-decoration: none;
               background-color: var(--bg-primary-color);
@@ -161,10 +183,17 @@
         }
       }
 
-      .menu-bar {
+      i.menu-bar {
         display: block;
         margin-left: auto;
         font-size: 3rem;
+      }
+
+      a#register {
+        font-size: 2.2rem;
+        i {
+          font-size: 2rem;
+        }
       }
     }
   }

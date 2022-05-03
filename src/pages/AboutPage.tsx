@@ -9,17 +9,19 @@ const AboutPage = () => {
         setShowMenu(prev => !prev)
     }
     useEffect(() => {
-        window.addEventListener("scroll", () =>
+        window.addEventListener("scroll", () =>{
         setScrollTop(window.pageYOffset > 85 ? true : false)
-        );
+        setShowMenu(false);
+        });
     
         return () =>
-          window.removeEventListener("scroll", () =>
+          window.removeEventListener("scroll", () =>{
           setScrollTop(window.pageYOffset > 85 ? true : false)
-          );
+          setShowMenu(false);
+          });
     }, []);
   return (
-    <main id="about-me-page">
+    <main id="about-me-page" className="light">
       <header className={showMenu ? "about-header toggle" : "about-header"}>
 
         <div className="user">

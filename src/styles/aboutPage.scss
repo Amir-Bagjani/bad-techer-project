@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&text=0123456789$");
 @import "config";
 
+.light {
+  --font-color: #555;
+  --heading-color: #333;
+  --bg-color: #f9f9f9;
+  --bg-secondary-color: #fff;
+  --bg-primary-color: #e5e5e5;
+  --bg-card-color: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+
 .button {
   padding: 0.7rem 3rem;
   background: var(--bg-primary-color);
@@ -36,7 +46,6 @@
 %d-flex {
   display: flex;
   align-items: center;
-  
 }
 
 #about-me-page {
@@ -338,7 +347,7 @@
     }
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   #about-me-page {
     transition: all 0.3s ease;
     header {

@@ -4,10 +4,10 @@ import "../styles/loginPage.scss";
 
 const LoginPage = () => {
   return (
-    <main id="login-page">
+    <main id="login-page" className="light">
 
         <header className="login-header">
-          {/* <Link to="/"><img src="/images/logo-hero.svg" alt="bad-teacher-logo" /></Link> */}
+          <Link to="/"><img src="/images/logo-navbarr.svg" alt="bad-teacher-logo" /></Link>
         </header>
 
         <div className="login-wrapper">

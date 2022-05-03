@@ -5,6 +5,15 @@
   align-items: center;
   justify-content: center;
 }
+.light {
+  --font-color: #555;
+  --heading-color: #333;
+  --bg-color: #f9f9f9;
+  --bg-secondary-color: #fff;
+  --bg-primary-color: #e5e5e5;
+  --bg-card-color: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
 
 #login-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
@@ -12,6 +21,7 @@
     @extend %d-flex;
 
     img{
+      margin-top: 1rem;
       height: 15rem;
     }   
   }
@@ -95,7 +105,7 @@
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 350px){
   #login-page .login-wrapper .form{
     border: none;
     width: 100%;

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, CSSProperties, useCallback } from "react";
+import { useEffect, useState, CSSProperties, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.scss";
 
@@ -35,7 +35,9 @@ const Navbar = () => {
 
   useEffect(() => {
     if (window.innerWidth <= 768) setMenuState(false);
+    window.scrollTo(0,0)
   }, [location.pathname]);
+
 
   //system prefer theme
   // useEffect(() => {
