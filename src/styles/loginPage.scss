@@ -17,6 +17,7 @@
 
 #login-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
   .login-header{
     @extend %d-flex;
 

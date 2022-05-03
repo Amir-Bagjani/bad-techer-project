@@ -95,19 +95,19 @@ const Navbar = () => {
               <div><i className="fas fa-adjust" ></i>  <span>{theme === "light" ? " تم روشن " : " تم تاریک "}</span></div>
             </li>
             <li>
-              <Link to="/">صفحه اصلی</Link>
+              <Link to="/"><i className="fas fa-home"></i> صفحه اصلی</Link> 
             </li>
             <li>
-              <Link to="/about-me">درباره من</Link>
+              <Link to="/about-me"><i className="fas fa-crown"></i> درباره من</Link> 
             </li>
             <li>
-              <Link to="/">کانال یوتیوب</Link>
+              <Link to="/courses/34"><i className="fab fa-youtube"></i> کانال یوتیوب</Link> 
             </li>
             <li>
-              <Link to="/courses">دوره ها</Link>
+              <Link to="/courses"><i className="fas fa-graduation-cap"></i> دوره ها</Link> 
             </li>
             <li>
-              <Link to="/courses">بلاگ</Link>
+              <Link to="/courses"><i className="fas fa-newspaper"></i> بلاگ</Link> 
             </li>
           </ul>
         </nav>

@@ -51,9 +51,9 @@
       font-size: 2em;
       transition: all 0.1s ease;
 
-      &:hover{
+      &:hover {
         background-color: #0b0b0b;
-        color: #FFF;
+        color: #fff;
         border: none;
         font-weight: bold;
       }
@@ -229,6 +229,18 @@
         cursor: pointer;
         font-size: 1.7rem;
       }
+    }
+  }
+}
+
+#blog {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+
+  .box-container {
+    @include grid(26rem, 1.5rem);
+
+    & > * {
+      @include blog-box;
     }
   }
 }

@@ -171,3 +171,59 @@
     }
   }
 }
+
+@mixin blog-box {
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-card-color);
+
+  img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 2rem;
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: var(--border);
+
+      a {
+        font-size: 1.5rem;
+        color: var(--heading-color);
+
+        &:hover {
+          color: var(--main-color);
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    h3 {
+      @include title-text(2.2rem);
+      padding: 0.5rem 0;
+      line-height: 1.8;
+    }
+
+    p {
+      @include grap-text(1.5rem);
+      line-height: 1.8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
