@@ -1,208 +1,152 @@
-.header {
-  font-family: "IRANSans", Arial, Helvetica, sans-serif;
-  position: fixed;
+@import "config";
+
+@mixin menu-popup {
+  position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  padding: 1rem 9%;
-  transition: all 0.4s cubic-bezier(0.4, 0, 1, 1);
+  right: -200%;
+  width: 100%;
+  height: 100vh;
+  padding-right: 3%;
+  transition: all 0.2s ease-in-out;
 
   &.active {
+    right: 0;
+  }
+
+  ul {
+    margin-top: 9rem;
+    width: 28rem;
+    padding: 1rem;
     background-color: var(--bg-secondary-color);
     box-shadow: var(--box-shadow);
-    .header-wrapper {
-      .logo {
-        img {
-          width: 6.5rem;
-          height: 6.5rem;
-        }
+    border-radius: 1rem;
+    overflow: hidden;
+    li {
+      @include title-text(1.5rem);
+      padding: 1rem;
+      cursor: pointer;
+      i {
+        margin-left: 1rem;
       }
-      a#register {
-        color: var(--heading-color);
-      }
+    }
+  }
+}
 
-      i.menu-bar {
+.header {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 1rem 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+
+  &.active {
+    .logo h1 {
+      color: var(--heading-color);
+    }
+
+    .navbar ul {
+      li,
+      li a {
         color: var(--heading-color);
-        font-size: 3rem;
-        font-weight: bold;
       }
-      .navbar {
-        ul {
-          li > * {
-            color: var(--heading-color);
-            &:hover {
-              text-decoration: none;
-            }
-          }
+    }
+
+    .icons > * {
+      border: 1px solid var(--heading-color);
+      color: var(--heading-color);
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    h1 span {
+      display: block;
+      text-align: left;
+      line-height: 1.2rem;
+    }
+
+    img {
+      width: 9rem;
+      height: 9rem;
+      object-fit: cover;
+    }
+  }
+
+  .navbar {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      font-size: 1.6rem;
+
+      li {
+        &:hover {
+          text-decoration: 0.2rem underline;
+          text-underline-offset: 0.8rem;
+        }
+        i {
+          display: none;
         }
       }
     }
   }
 
-  .header-wrapper {
+  .icons {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    max-width: 1300px;
-    margin: 0 auto;
+    gap: 1rem;
 
-    a#register {
-      color: #fff;
+    & > *{
+      height: 3.8rem;
+      width: 3.8rem;
+      line-height: 3.6rem;
       font-size: 1.7rem;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-
-      i {
-        font-size: 1.5rem;
-      }
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-
-    .logo {
-      margin-right: auto;
-      img {
-        transition: all 0.2s ease;
-        width: 9rem;
-        height: 9rem;
-        object-fit: cover;
-      }
-    }
-
-    .navbar {
-      ul {
-        display: flex;
-
-        &:first-child {
-          span {
-            display: none;
-          }
-        }
-
-        li a i {
-          display: none;
-        }
-
-        li > * {
-          font-size: 1.6rem;
-          color: #fff;
-          margin-left: 2rem;
-          transition: all 0.5s ease;
-
-          &:hover {
-            text-decoration: 0.2rem underline;
-            text-underline-offset: 0.8rem;
-          }
-        }
-      }
-    }
-
-    i.menu-bar {
-      display: none;
-      font-size: 3rem;
-      font-weight: bold;
-      border-radius: 0.5rem;
+      text-align: center;
+      border: 1px solid #fff;
       color: #fff;
     }
+    
+    
+
+    .fa-bars {
+      display: none;
+    }
+  }
+
+  .theme-box {
+    @include menu-popup;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 4.5rem 5%;
-
-    &.active {
-      .header-wrapper {
-        .logo {
-          img {
-            width: 9.5rem;
-            height: 9.5rem;
+    .navbar {
+      @include menu-popup;
+      ul {
+        display: block;
+        li {
+          &:hover {
+            text-decoration: none;
+          }
+          i {
+            display: inline-block;
           }
         }
       }
     }
 
-    .header-wrapper {
-      gap: 2rem;
-      height: 100%;
-
-      .logo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        img {
-          width: 9.5rem;
-          height: 9.5rem;
-        }
-      }
-
-      .navbar {
-        position: absolute;
-        top: 99%;
-        right: 0;
-        left: 0;
-        height: 100vh;
-        backdrop-filter: blur(2px);
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: all 0.2s ease;
-
-        &.active {
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-
-        ul {
-          display: block;
-          background-color: var(--bg-secondary-color);
-          box-shadow: var(--box-shadow);
-          overflow-y: auto;
-
-          &:first-child {
-            border-top: 1px solid var(--bg-secondary-color);
-            span {
-              display: inline-block;
-              margin-right: 0.5rem;
-            }
-          }
-
-          li a i {
-            display: inline-block;
-            margin-left: 0.5rem;
-            font-size: 2.2rem;
-          }
-
-          li > * {
-            display: block;
-            color: var(--heading-color);
-            padding: 2rem 3.5rem;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1.7rem;
-            border-bottom: var(--border);
-            &:hover {
-              text-decoration: none;
-              background-color: var(--bg-primary-color);
-            }
-          }
-        }
-      }
-
-      i.menu-bar {
+    .icons {
+      .fa-bars {
         display: block;
-        margin-left: auto;
-        font-size: 3rem;
-      }
-
-      a#register {
-        font-size: 2.2rem;
-        i {
-          font-size: 2rem;
-        }
       }
     }
   }

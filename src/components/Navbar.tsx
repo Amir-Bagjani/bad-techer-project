@@ -4,116 +4,129 @@ import "../styles/navbar.scss";
 
 const Navbar = () => {
   const location = useLocation();
-  const [menuState, setMenuState] = useState(false);
-  const [theme, setTheme] = useState("light");
-  const [offset, setOffset] = useState(false);
+  const [menuState, setMenuState] = useState("");
 
-  const toggleMenu = () => {
-    setMenuState((prev) => !prev);
-  };
-  const conditionCloseMenu = (e: React.MouseEvent<HTMLElement>) => {
-    if (e.target === e.currentTarget) toggleMenu();
-  };
-  const themeHandle = useCallback(() => {
-    if (theme === "light") {
+  const closeMenuState = useCallback(() => {
+    setMenuState("");
+  }, []);
+
+  const conditionCloseMenu = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    if (e.target === e.currentTarget) closeMenuState();
+  }, []);
+
+  const themeHandle = useCallback((theme: string) => {
+    if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
-      setTheme("dark");
     } else {
       document.documentElement.removeAttribute("data-theme");
-      setTheme("light");
     }
-  }, [theme])
+    localStorage.setItem(`theme`, JSON.stringify(theme));
+    closeMenuState();
+  }, []);
+
+  //system prefer theme
+  const handlePreferTheme = useCallback(() => {
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
+    if (query.matches) {
+      themeHandle("dark");
+    } else {
+      themeHandle("light");
+    }
+  }, []);
 
   useEffect(() => {
     const isTheme = localStorage.getItem(`theme`);
-    setTheme(isTheme ? JSON.parse(isTheme) : "light");
+    if (isTheme) {
+      themeHandle(JSON.parse(isTheme));
+    } else {
+      themeHandle("light");
+    }
   }, []);
-  useEffect(() => {
-    localStorage.setItem(`theme`, JSON.stringify(theme));
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
 
   useEffect(() => {
-    if (window.innerWidth <= 768) setMenuState(false);
-    window.scrollTo(0,0)
+    if (window.innerWidth <= 768) closeMenuState();
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  //system prefer theme
-  // useEffect(() => {
-  //   const query = window.matchMedia("(prefers-color-scheme: dark)");
-  //   if (query.matches) {
-  //     document.documentElement.setAttribute("data-theme", "dark");
-  //     setTheme("dark");
-  //   } else {
-  //     document.documentElement.removeAttribute("data-theme");
-  //     setTheme("light");
-  //   }
-  // }, []);
-
-  //change background of navbar
+  //close menu navbar
   useEffect(() => {
-    window.addEventListener("scroll", () =>
-      setOffset(window.pageYOffset > 85 ? true : false)
-    );
-
-    return () =>
-      window.removeEventListener("scroll", () =>
-        setOffset(window.pageYOffset > 85 ? true : false)
-      );
+    window.addEventListener("scroll", () => closeMenuState());
+    return () => window.addEventListener("scroll", () => closeMenuState());
   }, []);
-
-  const checkOpenMenu = (): CSSProperties | undefined => {
-    if (menuState) {
-      return { backgroundColor: `var(--bg-primary-color)` };
-    }
-  };
 
   return (
     <header
       className={
-        offset || location.pathname !== "/" || menuState ? "header active" : "header"
+        location.pathname === "/" ? "header" : "header active"
       }
-      style={checkOpenMenu()}
     >
-      <div className="header-wrapper">
-        <i
-          className={`fas ${menuState ? `fa-times` : `fa-bars`} menu-bar`}
-          onClick={toggleMenu}
-        ></i>
+      <div className="icons">
+        <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
 
-        <Link to="/auth" id="register">
-          ورود <i className="fas fa-user"></i>
-        </Link>
+        {/* <Link to="/auth" id="register"> */}
+          <i className="fas fa-user"></i>
+        {/* </Link> */}
 
-        <nav
-          className={menuState ? "navbar active" : "navbar"}
-          onClick={conditionCloseMenu}
-        >
-          <ul>
-            <li onClick={themeHandle}>
-              <div><i className="fas fa-adjust" ></i>  <span>{theme === "light" ? " تم روشن " : " تم تاریک "}</span></div>
-            </li>
-            <li>
-              <Link to="/"><i className="fas fa-home"></i> صفحه اصلی</Link> 
-            </li>
-            <li>
-              <Link to="/about-me"><i className="fas fa-crown"></i> درباره من</Link> 
-            </li>
-            <li>
-              <Link to="/courses/34"><i className="fab fa-youtube"></i> کانال یوتیوب</Link> 
-            </li>
-            <li>
-              <Link to="/courses"><i className="fas fa-graduation-cap"></i> دوره ها</Link> 
-            </li>
-            <li>
-              <Link to="/courses"><i className="fas fa-newspaper"></i> بلاگ</Link> 
-            </li>
-          </ul>
-        </nav>
+        <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
+      </div>
 
-        <Link to="/" className="logo">
-          <img src="/images/logo-navbarr.svg" alt="bad-teacher-logo" />
-        </Link>
+      <nav
+        className={menuState === "navbar" ? "navbar active" : "navbar"}
+        onClick={conditionCloseMenu}
+      >
+        <ul onClick={closeMenuState}>
+          <li>
+            <Link to="/">
+              <i className="fas fa-home"></i> صفحه اصلی
+            </Link>
+          </li>
+          <li>
+            <Link to="/about-me">
+              <i className="fas fa-crown"></i> درباره من
+            </Link>
+          </li>
+          <li>
+            <Link to="/courses/34">
+              <i className="fab fa-youtube"></i> کانال یوتیوب
+            </Link>
+          </li>
+          <li>
+            <Link to="/courses">
+              <i className="fas fa-graduation-cap"></i> دوره ها
+            </Link>
+          </li>
+          <li>
+            <Link to="/courses">
+              <i className="fas fa-newspaper"></i> بلاگ
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Link to="/" className="logo">
+        <h1>
+          Bad Teacher
+          <span>Academi</span>
+        </h1>
+        <img src="/images/logo-navbarr.svg" alt="bad-teacher-logo" />
+      </Link>
+
+      <div
+        className={menuState === "theme" ? "theme-box active" : "theme-box"}
+        onClick={conditionCloseMenu}
+      >
+        <ul>
+          <li onClick={() => themeHandle("dark")}>
+            <i className="fas fa-moon"></i> <span>تم تاریک</span>
+          </li>
+          <li onClick={() => themeHandle("light")}>
+            <i className="fas fa-sun"></i> <span>تم روشن</span>
+          </li>
+          <li onClick={handlePreferTheme}>
+            <i className="fas fa-adjust"></i>{" "}
+            <span>دارک مود بر اساس سیستم شما</span>
+          </li>
+        </ul>
       </div>
     </header>
   );
