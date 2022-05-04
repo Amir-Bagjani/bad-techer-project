@@ -64,8 +64,11 @@ const Navbar = () => {
       <div className="icons">
         <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
 
-        <Link to="/auth" id="register">
-          <i className="fas fa-user"></i>
+        <Link to="/auth" id="register" className="fas fa-user">
+        </Link>
+
+        <Link to="/cart" id="cart" className="fas fa-shopping-cart">
+          <span>2</span>
         </Link>
 
         <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
@@ -97,7 +100,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/courses">
+            <Link to="/blog">
               <i className="fas fa-newspaper"></i> بلاگ
             </Link>
           </li>
@@ -107,7 +110,7 @@ const Navbar = () => {
       <Link to="/" className="logo">
         <h1>
           Bad Teacher
-          <span>Academi</span>
+          <span>Academy</span>
         </h1>
         <img src="/images/logo.svg" alt="bad-teacher-logo" />
       </Link>
@@ -125,7 +128,7 @@ const Navbar = () => {
           </li>
           <li onClick={handlePreferTheme}>
             <i className="fas fa-adjust"></i>
-            <span>دارک مود بر اساس سیستم شما</span>
+            <span>سیستم</span>
           </li>
         </ul>
       </div>

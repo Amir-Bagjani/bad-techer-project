@@ -25,7 +25,6 @@
     flex: 1 1 $val;
   }
 }
-
 @mixin form {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   padding: 2rem 3rem;
@@ -43,7 +42,7 @@
 
     i {
       position: absolute;
-      top: 2.4rem;
+      top: 3rem;
       left: 0.5rem;
       font-size: 2rem;
       color: var(--font-color);
@@ -51,10 +50,10 @@
 
     input,
     textarea {
-      @include grap-text(1.7rem);
+      @include grap-text(2rem);
       width: 100%;
       background: none;
-      margin: 1.5rem 0;
+      margin: 3rem 0;
       padding: 0.5rem 0;
       border-bottom: var(--border);
 
@@ -69,11 +68,11 @@
     }
 
     label {
-      @include grap-text(1.3rem);
+      @include grap-text(2rem);
       position: absolute;
-      top: 1.7rem;
+      top: 2rem;
       right: 0;
-      transition: 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
     input:focus ~ label,
@@ -89,9 +88,9 @@
   .btn-submit {
     width: 100%;
     height: 5rem;
+    margin: 3rem 0;
   }
 }
-
 @mixin course-box {
   display: flex;
   overflow: hidden;
@@ -116,7 +115,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: space-around;
+    // justify-content: space-around;
     gap: 1rem;
     padding: 1rem;
     h3 {
@@ -144,6 +143,7 @@
       padding: 0.4rem 1rem;
       border-radius: 0.2rem;
       cursor: pointer;
+      margin-top: auto;
     }
   }
 
@@ -172,7 +172,6 @@
     }
   }
 }
-
 @mixin blog-box {
   overflow: hidden;
   border-radius: 2rem;

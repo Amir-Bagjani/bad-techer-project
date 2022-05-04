@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap&text012345689');
 @import "config";
+@import url('https://fonts.googleapis.com/css2?family=Allan&display=swap');
 
 :root {
   --font-color: #555;
@@ -9,8 +9,8 @@
   --bg-primary-color: #e5e5e5;
   --bg-card-color: #fff;
   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  --menu-border: 0.1rem solid rgba(0, 0, 0, 0.103);
   --main-color: #FE0000;
-  --bad-teacher-font: "Oswald";
   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   --max-width: 120rem;
 }
@@ -22,9 +22,7 @@
   --bg-primary-color: #2e2e2e;
   --bg-card-color: #424242;
   --border: 0.1rem solid rgba(255, 255, 255, 0.2);
-}
-[main-color="main-color"] {
-  --main-color: #ff5700;
+  --menu-border: 0.1rem solid rgba(255, 255, 255, 0.103);
 }
 
 * {

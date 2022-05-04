@@ -27,7 +27,6 @@
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.7);
-    // background-color: rgba(57, 49, 49, 0.7);
   }
   .hero-content {
     position: absolute;
@@ -39,6 +38,10 @@
       font-weight: bold;
       font-size: 4rem;
       padding-bottom: 1rem;
+      font-family: Allan;
+      span{
+        font-family: "IRANSans", Arial, Helvetica, sans-serif;
+      }
     }
 
     p {

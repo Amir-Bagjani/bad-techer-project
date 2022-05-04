@@ -17,15 +17,18 @@
 
 #login-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
-  background-color: var(--bg-color);
+  background-color: #fafafa;
   height: 100%;
-  .login-header{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .login-header {
     @extend %d-flex;
 
-    img{
-      margin-top: 1rem;
+    img {
+      margin: 2rem;
       height: 15rem;
-    }   
+    }
   }
 
   .login-wrapper {
@@ -41,9 +44,9 @@
       @include form;
       border: 1px solid rgb(219, 219, 219);
       padding: 5rem;
+      padding-top: 3rem;
       box-shadow: none;
-      width: 40rem;
-      border-radius: 0;
+      width: 48rem;
 
       .links {
         display: flex;
@@ -56,10 +59,12 @@
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          font-size: 1.5rem;
         }
 
         .forget-password {
           color: var(--main-color);
+          font-size: 1.5rem;
         }
       }
 
@@ -67,16 +72,16 @@
         padding-left: 4rem;
       }
 
-      .create-account{
+      .create-account {
         display: block;
         text-align: center;
-        padding: 1.8rem 0 2.2rem;
-        font-size: 1.3rem;
+        padding-bottom: 3rem;
+        font-size: 1.5rem;
         color: var(--main-color);
         border-bottom: var(--border);
       }
 
-      .google-btn{
+      .google-btn {
         font-family: "IRANSans", Arial, Helvetica, sans-serif;
         @extend %d-flex;
         gap: 1rem;
@@ -87,28 +92,32 @@
         border-radius: 2.5rem;
         border: var(--border);
         font-size: 1.7rem;
-        margin-top: 1.8rem;
+        margin-top: 3rem;
         cursor: pointer;
         transition: transform 0.2s ease;
 
-        &:hover{
+        &:hover {
           transform: scale(1.09);
         }
       }
     }
   }
 
-  footer.login-footer{
+  footer.login-footer {
+    background-color: #fafafa;
     text-align: center;
     width: 80%;
-    @include grap-text(1rem);
+    @include grap-text(1.3rem);
     margin-inline: auto;
     padding: 5rem;
+    line-height: 1.6;
+    margin-top: auto;
+    margin-bottom: 3rem;
   }
 }
 
-@media (max-width: 350px){
-  #login-page .login-wrapper .form{
+@media (max-width: 400px) {
+  #login-page .login-wrapper .form {
     border: none;
     width: 100%;
   }
