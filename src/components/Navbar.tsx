@@ -34,6 +34,7 @@ const Navbar = () => {
     }
   }, []);
 
+  //get theme from local storage for first render
   useEffect(() => {
     const isTheme = localStorage.getItem(`theme`);
     if (isTheme) {
@@ -63,9 +64,9 @@ const Navbar = () => {
       <div className="icons">
         <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
 
-        {/* <Link to="/auth" id="register"> */}
+        <Link to="/auth" id="register">
           <i className="fas fa-user"></i>
-        {/* </Link> */}
+        </Link>
 
         <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
       </div>
@@ -108,7 +109,7 @@ const Navbar = () => {
           Bad Teacher
           <span>Academi</span>
         </h1>
-        <img src="/images/logo-navbarr.svg" alt="bad-teacher-logo" />
+        <img src="/images/logo.svg" alt="bad-teacher-logo" />
       </Link>
 
       <div
@@ -123,7 +124,7 @@ const Navbar = () => {
             <i className="fas fa-sun"></i> <span>تم روشن</span>
           </li>
           <li onClick={handlePreferTheme}>
-            <i className="fas fa-adjust"></i>{" "}
+            <i className="fas fa-adjust"></i>
             <span>دارک مود بر اساس سیستم شما</span>
           </li>
         </ul>

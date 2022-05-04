@@ -87,16 +87,6 @@ const HomePage = () => {
             </div>
         </Section>
 
-        <Section id="newsletter">
-            <h3>اشتراک در خبر نامه</h3>
-            <p>برای اطلاع از آخرین دوره ها و آموزش های رایگان در خبرنامه آکادمی <span>Bad Teacher</span> عضو شوید.</p>
-
-            <form>
-                <input type="email" placeholder="ایمیل خود را وارد کنید" />
-                <input type="submit" value="ارسال" />
-            </form>
-        </Section>
-
     </>
   )
 }

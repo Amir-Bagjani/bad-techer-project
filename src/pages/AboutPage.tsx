@@ -13,7 +13,8 @@ const AboutPage = () => {
         setScrollTop(window.pageYOffset > 85 ? true : false)
         setShowMenu(false);
         });
-    
+        window.scrollTo(0, 0);   
+         
         return () =>
           window.removeEventListener("scroll", () =>{
           setScrollTop(window.pageYOffset > 85 ? true : false)

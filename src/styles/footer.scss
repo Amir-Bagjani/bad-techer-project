@@ -32,7 +32,7 @@
     justify-content: space-between;
 
     & > img {
-      width: 19rem;
+      width: 20rem;
     }
 
     .networks {
@@ -41,6 +41,60 @@
         margin-inline: 0.5rem;
         background-color: var(--heading-color);
         color: var(--bg-card-color);
+      }
+    }
+  }
+
+  .newsletter {
+    font-family: "IRANSans", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+  
+    h3 {
+      @include title-text(2rem);
+    }
+  
+    p {
+      @include grap-text(1.6rem);
+      width: 90%;
+      margin: 2rem auto;
+      span {
+        text-decoration: underline var(--main-color) 2px;
+      }
+    }
+  
+    form {
+      border: 0.2rem solid var(--heading-color);
+      display: flex;
+      max-width: 70rem;
+      margin: 2rem auto;
+      border-radius: 5rem;
+      padding: 0.5rem;
+      height: 5.5rem;
+  
+      input {
+        font-family: "IRANSans", Arial, Helvetica, sans-serif;
+        border-radius: 5rem;
+  
+        &:first-child {
+          width: 100%;
+          background: none;
+          color: var(--font-color);
+          padding: 0 2rem;
+          font-size: 1.7rem;
+  
+          &::placeholder {
+            color: var(--font-color);
+          }
+        }
+  
+        &:last-child {
+          background-color: var(--bg-card-color);
+          color: var(--font-color);
+          padding: 0 2rem;
+          cursor: pointer;
+          font-size: 1.7rem;
+        }
       }
     }
   }
@@ -54,19 +108,19 @@
 
     .box {
       h3 {
-        @include title-text(2rem);
+        @include title-text(2.3rem);
         margin: 1.5rem 0;
         text-decoration: underline;
         text-underline-offset: 1rem;
       }
 
       p {
-        @include grap-text(1.4rem);
+        @include grap-text(1.5rem);
         padding: 0.5rem 0;
       }
 
       a {
-        @include grap-text(1.4rem);
+        @include grap-text(1.7rem);
         display: block;
         padding: 0.5rem 0;
 
@@ -77,18 +131,17 @@
 
       .info {
         @extend %d-flex;
-        gap: 1rem;
-
-        i {
-          @extend %center;
-          margin: 0.5rem 0;
-          color: var(--font-color);
-          background-color: var(--bg-color);
+        justify-content: space-between;
+        h4{
+          @include grap-text(1.5rem);
         }
       }
 
       &.about {
         flex: 2 1 30rem;
+        p{
+          line-height: 1.9;
+        }
       }
       &.contact {
         flex: 1 1 25rem;
@@ -100,7 +153,23 @@
   }
 
   .credit {
-    @include title-text(1.2rem);
+    @include grap-text(1.4rem);
     text-align: center;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer.dark {
+    .footer-header {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .footer-content .box {
+      text-align: center;
+      .info{
+        justify-content: space-between;
+      }
+    }
   }
 }

@@ -67,6 +67,7 @@
 #courses {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   background-color: var(--bg-primary-color);
+  padding-top: 2rem;
 
   .courses-container {
     margin-top: 8rem;
@@ -181,61 +182,6 @@
   }
 }
 
-#newsletter {
-  font-family: "IRANSans", Arial, Helvetica, sans-serif;
-  // background-color: var(--bg-primary-color);
-  padding: 7rem 1rem;
-  text-align: center;
-
-  h3 {
-    @include title-text(3rem);
-  }
-
-  p {
-    @include grap-text(1.5rem);
-    width: 90%;
-    margin: 2rem auto;
-    span {
-      text-decoration: underline var(--main-color) 2px;
-    }
-  }
-
-  form {
-    border: 0.2rem solid var(--heading-color);
-    display: flex;
-    max-width: 70rem;
-    margin: 2rem auto;
-    border-radius: 5rem;
-    padding: 0.5rem;
-    height: 5.5rem;
-
-    input {
-      font-family: "IRANSans", Arial, Helvetica, sans-serif;
-      border-radius: 5rem;
-
-      &:first-child {
-        width: 100%;
-        background: none;
-        color: var(--font-color);
-        padding: 0 2rem;
-        font-size: 1.7rem;
-
-        &::placeholder {
-          color: var(--font-color);
-        }
-      }
-
-      &:last-child {
-        background-color: var(--bg-primary-color);
-        color: var(--font-color);
-        padding: 0 2rem;
-        cursor: pointer;
-        font-size: 1.7rem;
-      }
-    }
-  }
-}
-
 #blog {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
 
@@ -257,11 +203,6 @@
     .hero-content {
       position: unset;
       text-align: center;
-    }
-  }
-  #more-about-me {
-    .about-me {
-      flex-direction: column;
     }
   }
   #courses {
