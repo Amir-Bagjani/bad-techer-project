@@ -1,11 +1,11 @@
 @import "config";
 
 .dark {
-  --font-color: #bbbbbb;
+  --font-color: #d1d1d1;
   --heading-color: #e8e8e8;
   --bg-color: #212121;
   --bg-secondary-color: #191919;
-  --bg-primary-color: #2e2e2e;
+  --bg-primary-color: #5e5e5e;
   --bg-card-color: #424242;
   --border: 0.1rem solid rgba(255, 255, 255, 0.2);
 }
@@ -49,11 +49,11 @@
     font-family: "IRANSans", Arial, Helvetica, sans-serif;
     text-align: center;
     margin-top: 2rem;
-  
+
     h3 {
       @include title-text(2rem);
     }
-  
+
     p {
       @include grap-text(1.6rem);
       width: 90%;
@@ -62,7 +62,7 @@
         text-decoration: underline var(--main-color) 2px;
       }
     }
-  
+
     form {
       border: 0.2rem solid var(--heading-color);
       display: flex;
@@ -71,23 +71,23 @@
       border-radius: 5rem;
       padding: 0.5rem;
       height: 5.5rem;
-  
+
       input {
         font-family: "IRANSans", Arial, Helvetica, sans-serif;
         border-radius: 5rem;
-  
+
         &:first-child {
           width: 100%;
           background: none;
           color: var(--font-color);
           padding: 0 2rem;
           font-size: 1.7rem;
-  
+
           &::placeholder {
             color: var(--font-color);
           }
         }
-  
+
         &:last-child {
           background-color: var(--bg-card-color);
           color: var(--font-color);
@@ -132,14 +132,14 @@
       .info {
         @extend %d-flex;
         justify-content: space-between;
-        h4{
+        h4 {
           @include grap-text(1.5rem);
         }
       }
 
       &.about {
         flex: 2 1 30rem;
-        p{
+        p {
           line-height: 1.9;
         }
       }
@@ -160,16 +160,14 @@
 }
 
 @media (max-width: 550px) {
-  .footer.dark {
-    .footer-header {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .footer-content .box {
-      text-align: center;
-      .info{
-        justify-content: space-between;
-      }
+  .footer.dark .footer-header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-content .box {
+    text-align: center;
+    .info {
+      justify-content: space-between;
     }
   }
 }
