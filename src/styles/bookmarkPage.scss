@@ -1,9 +1,12 @@
 @import "config";
 
-#blogs-page {
+#bookmark-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   background-color: var(--bg-primary-color);
-  .blog-container {
+  .heading{
+      margin-bottom: 0;
+  }
+  .bookmark-container {
     margin-top: 2rem;
     display: flex;
     align-items: flex-start;
@@ -24,8 +27,8 @@
   }
 }
 @media (max-width: 768px) {
-  #blogs-page {
-    .blog-container {
+  #bookmark-page {
+    .bookmark-container {
       flex-direction: column;
       align-items: unset;
       &-content {

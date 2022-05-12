@@ -32,6 +32,10 @@
       border-bottom: var(--menu-border);
       padding: 1.3rem 1.3rem;
 
+      a{
+        width: 100%;
+      }
+
       &:last-child {
         border-bottom: none;
       }

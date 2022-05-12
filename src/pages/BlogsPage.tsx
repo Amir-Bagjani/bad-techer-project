@@ -58,7 +58,7 @@ const BlogsPage = () => {
         <div className="blog-container-content">
           <Breadcrumbs />
           {datas.map(data => (
-            <Link to={data.title}><CourseBoxNew data={data} key={data.id} /></Link>
+            <Link to={data.title} key={data.id}><CourseBoxNew data={data} /></Link>
           ))}
         </div>
         <div className="blog-container-sidebar">

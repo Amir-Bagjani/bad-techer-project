@@ -6,9 +6,9 @@ import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <Routes>
-      <Route path="*" element={<Layout />} />
       <Route path="/about-me" element={<AboutPage />} />
       <Route path="/auth" element={<LoginPage />} />
+      <Route path="*" element={<Layout />} />
     </Routes>
   );
 }

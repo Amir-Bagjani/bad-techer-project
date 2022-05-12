@@ -1,4 +1,4 @@
-import { useEffect, useState, CSSProperties, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.scss";
 
