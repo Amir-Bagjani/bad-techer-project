@@ -6,11 +6,12 @@ import BlogsPage from "../pages/BlogsPage";
 import BlogDetailPage from "../pages/BlogDetailPage";
 import CartPage from "../pages/CartPage";
 import ProfilePage from "../pages/ProfilePage";
+import PurchasedCoursesPage from "../pages/PurchasedCoursesPage";
 import BookmarkPage from "../pages/BookmarkPage";
+import EditProfilePage from "../pages/EditProfilePage";
 import NotFound from "../pages/NotFound";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import PurchasedCoursesPage from "../pages/PurchasedCoursesPage";
 
 const Layout = () => {
   return (
@@ -26,6 +27,7 @@ const Layout = () => {
         <Route path="profile">
           <Route index element={<ProfilePage />} />
           <Route path="bookmark" element={<BookmarkPage />} />
+          <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="purchased-courses" element={<PurchasedCoursesPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
