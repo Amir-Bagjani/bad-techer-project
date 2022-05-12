@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BlogSidebar from "../components/BlogSidebar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import CourseBoxNew from "../components/CourseBoxNew";
@@ -52,12 +53,12 @@ const datas = [
 const BlogsPage = () => {
 
   return (
-    <Section id="section-page">
+    <Section id="blogs-page">
       <div className="blog-container">
         <div className="blog-container-content">
           <Breadcrumbs />
           {datas.map(data => (
-            <CourseBoxNew data={data} key={data.id} />
+            <Link to={data.title}><CourseBoxNew data={data} key={data.id} /></Link>
           ))}
         </div>
         <div className="blog-container-sidebar">

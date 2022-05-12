@@ -1,6 +1,6 @@
 @import "config";
 
-#section-page {
+#blogs-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   background-color: var(--bg-primary-color);
   .blog-container {
@@ -15,7 +15,7 @@
       flex: 7;
       border-radius: 1rem;
 
-      & > .course-box {
+      & > a > .course-box {
         @include course-box;
         max-height: 20rem;
         margin-bottom: 2rem;
@@ -24,7 +24,7 @@
   }
 }
 @media (max-width: 768px) {
-  #section-page {
+  #blogs-page {
     .blog-container {
       flex-direction: column;
       align-items: unset;

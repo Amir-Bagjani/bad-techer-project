@@ -5,6 +5,7 @@ import CourseDetailPage from "../pages/CourseDetailPage";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import BlogsPage from "../pages/BlogsPage";
+import BlogDetailPage from "../pages/BlogDetailPage";
 import CartPage from "../pages/CartPage";
 
 const Layout = () => {
@@ -15,7 +16,7 @@ const Layout = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="courses" element={<CoursesPage />} />
         <Route path="blogs" element={<BlogsPage />} />
-        <Route path="blogs/:blogSlug" element={<BlogsPage />} />
+        <Route path="blogs/:blogSlug" element={<BlogDetailPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="courses/:id" element={<CourseDetailPage />} />
       </Routes>

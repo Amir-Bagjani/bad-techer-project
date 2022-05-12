@@ -14,7 +14,7 @@ const Breadcrumbs = () => {
       </li>
       {blogSlug && (
         <li>
-          <Link to={blogSlug}>{blogSlug}</Link>
+          <Link to="">{blogSlug}</Link>
         </li>
       )}
     </ul>
