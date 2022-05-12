@@ -42,7 +42,7 @@
 
     .form {
       @include form;
-      border: 1px solid rgb(219, 219, 219);
+      border: none;
       padding: 5rem;
       padding-top: 3rem;
       box-shadow: none;
@@ -118,7 +118,6 @@
 
 @media (max-width: 768px) {
   #login-page .login-wrapper .form {
-    border: none;
     width: 100%;
   }
 }

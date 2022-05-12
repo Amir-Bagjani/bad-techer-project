@@ -1,8 +1,8 @@
-// import Heading from "../components/Heading";
 import BlogSidebar from "../components/BlogSidebar";
+import Breadcrumbs from "../components/Breadcrumbs";
 import CourseBoxNew from "../components/CourseBoxNew";
 import Section from "../components/Section";
-import "../styles/blogPage.scss";
+import "../styles/blogsPage.scss";
 
 const datas = [
   {
@@ -49,11 +49,13 @@ const datas = [
   },
 ];
 
-const BlogPage = () => {
+const BlogsPage = () => {
+
   return (
     <Section id="section-page">
       <div className="blog-container">
         <div className="blog-container-content">
+          <Breadcrumbs />
           {datas.map(data => (
             <CourseBoxNew data={data} key={data.id} />
           ))}
@@ -66,4 +68,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default BlogsPage;

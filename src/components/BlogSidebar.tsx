@@ -9,28 +9,30 @@ interface Data {
 }
 
 interface BlogSidebarProp {
-    datas: Data[];
+  datas: Data[];
 }
 
 const BlogSidebar = ({ datas }: BlogSidebarProp) => {
   return (
     <>
-      <Heading>
-        <h2>محبوب ترین دوره ها</h2>
-      </Heading>
       <div className="side-course-container">
-        {datas.filter(i => i.id<=3).map((data) => (
-          <div className="box" key={data.id}>
-            <img src={data.image} alt="bad-teacher-courses" />
-            <h3>{data.title}</h3>
-          </div>
-        ))}
+        <Heading>
+          <h2>محبوب ترین دوره ها</h2>
+        </Heading>
+        {datas
+          .filter((i) => i.id <= 3)
+          .map((data) => (
+            <div className="box" key={data.id}>
+              <img src={data.image} alt="bad-teacher-courses" />
+              <h3>{data.title}</h3>
+            </div>
+          ))}
       </div>
 
-      <Heading>
-        <h2>دسترسی سریع</h2>
-      </Heading>
       <div className="side-quick-links">
+        <Heading>
+          <h2>دسترسی سریع</h2>
+        </Heading>
         <Link to="/">
           <i className="fas fa-home"></i> صفحه اصلی
         </Link>
@@ -44,6 +46,15 @@ const BlogSidebar = ({ datas }: BlogSidebarProp) => {
           <i className="fas fa-graduation-cap"></i> دوره ها
         </Link>
       </div>
+
+      <a className="network whatsapp">
+        0912-111-4567
+        <i className="fab fa-whatsapp"></i>
+      </a>
+
+      <a className="network instagram">اینستاگرام ما را دنبال کنید</a>
+
+      <a className="network youtube">یوتیب ما را دنبال کنید</a>
     </>
   );
 };

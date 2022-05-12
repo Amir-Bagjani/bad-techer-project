@@ -7,14 +7,15 @@ const LoginPage = () => {
     <main id="login-page" className="light">
 
         <header className="login-header">
-          <Link to="/"><img src="/images/logo.svg" alt="bad-teacher-logo" /></Link>
+          {/* <Link to="/"><img src="/images/logo.svg" alt="bad-teacher-logo" /></Link> */}
+          <Link to="/"><img src="/images/logo-1.svg" alt="bad-teacher-logo" /></Link>
         </header>
 
         <div className="login-wrapper">
 
             <form className="form">
               <h1>ورود به سایت</h1>
-              <InputBox as="input" label="ایمیل" type="email" required />
+              <InputBox as="input" label="ایمیل" type="text" required />
               <InputBox as="input" className="input-password" label="رمز ورود" type="password" required />
               <div className="links">
                 <label>

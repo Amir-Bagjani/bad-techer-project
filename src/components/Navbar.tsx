@@ -100,7 +100,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/blog">
+            <Link to="/blogs">
               <i className="fas fa-newspaper"></i> بلاگ
             </Link>
           </li>
@@ -112,6 +112,7 @@ const Navbar = () => {
           Bad Teacher
           <span>Academy</span>
         </h1>
+        {/* <img src="/images/logo-1.svg" alt="bad-teacher-logo" /> */}
         <img src="/images/logo.svg" alt="bad-teacher-logo" />
       </Link>
 

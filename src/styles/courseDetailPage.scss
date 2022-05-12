@@ -2,7 +2,9 @@
 
 #course-detail-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary-color);
   .course-detail-page-header {
+    margin-top: 1rem;
     & > .course-box {
       @include course-box;
       @media (max-width: 672px) {

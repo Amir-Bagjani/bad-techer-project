@@ -15,7 +15,7 @@
       flex: 7;
       border-radius: 1rem;
 
-      & > * {
+      & > .course-box {
         @include course-box;
         max-height: 20rem;
         margin-bottom: 2rem;
