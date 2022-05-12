@@ -10,6 +10,7 @@ import BookmarkPage from "../pages/BookmarkPage";
 import NotFound from "../pages/NotFound";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import PurchasedCoursesPage from "../pages/PurchasedCoursesPage";
 
 const Layout = () => {
   return (
@@ -25,6 +26,7 @@ const Layout = () => {
         <Route path="profile">
           <Route index element={<ProfilePage />} />
           <Route path="bookmark" element={<BookmarkPage />} />
+          <Route path="purchased-courses" element={<PurchasedCoursesPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import BlogSidebar from "../components/BlogSidebar";
 import CourseBoxNew from "../components/CourseBoxNew";
 import Heading from "../components/Heading";
 import Section from "../components/Section";
@@ -66,7 +65,7 @@ const BookmarkPage = () => {
               </Link>
             </li>
             <li>
-              <Link to="/profile/purchased-products">
+              <Link to="/profile/purchased-courses">
                 <i className="fas fa-graduation-cap"></i>دوره های خریداری شده
               </Link>
             </li>
