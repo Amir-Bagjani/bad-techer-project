@@ -1,13 +1,19 @@
 import { useEffect, useState, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/navbar.scss";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(true);
   const location = useLocation();
   const [menuState, setMenuState] = useState("");
 
   const closeMenuState = useCallback(() => {
     setMenuState("");
+  }, []);
+
+  const handleUserMenu = useCallback(() => {
+    user ? setMenuState("user") : navigate("/auth");
   }, []);
 
   const conditionCloseMenu = useCallback((e: React.MouseEvent<HTMLElement>) => {
@@ -52,20 +58,16 @@ const Navbar = () => {
   //close menu navbar
   useEffect(() => {
     window.addEventListener("scroll", () => closeMenuState());
+
     return () => window.addEventListener("scroll", () => closeMenuState());
   }, []);
 
   return (
-    <header
-      className={
-        location.pathname === "/" ? "header" : "header active"
-      }
-    >
+    <header className={location.pathname === "/" ? "header" : "header active"}>
       <div className="icons">
         <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
 
-        <Link to="/auth" id="register" className="fas fa-user">
-        </Link>
+        <i className="fas fa-user" onClick={handleUserMenu}></i>
 
         <Link to="/cart" id="cart" className="fas fa-shopping-cart">
           <span>2</span>
@@ -130,6 +132,33 @@ const Navbar = () => {
           <li onClick={handlePreferTheme}>
             <i className="fas fa-adjust"></i>
             <span>سیستم</span>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        className={menuState === "user" ? "user-box active" : "user-box"}
+        onClick={conditionCloseMenu}
+      >
+        <ul onClick={closeMenuState}>
+          <li>
+              <i className="fas fa-user"></i> <span>سینا پدر احمدی <br /> 09391111234</span>
+          </li>
+          <li>
+            <Link to="/profile">
+              <i className="fas fa-chess-rook"></i> <span>حساب کاربری</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile/bookmark">
+              <i className="fas fa-heart"></i> <span>علاقه مندی ها</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="">
+              <i className="fas fa-sign-out-alt"></i>{" "}
+              <span>خروج از حساب کاربری</span>
+            </Link>
           </li>
         </ul>
       </div>

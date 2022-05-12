@@ -32,7 +32,7 @@
       border-bottom: var(--menu-border);
       padding: 1.3rem 1.3rem;
 
-      a{
+      a {
         width: 100%;
       }
 
@@ -151,6 +151,13 @@
 
   .theme-box {
     @include menu-popup;
+  }
+
+  .user-box {
+    @include menu-popup;
+    li a i {
+      margin-left: 1rem;
+    }
   }
 }
 
