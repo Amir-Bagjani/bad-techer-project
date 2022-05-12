@@ -90,6 +90,10 @@
     height: 5rem;
     margin: 3rem 0;
   }
+
+  input[type="checkbox"]{
+    accent-color: var(--main-color);
+  }
 }
 @mixin course-box {
   display: flex;

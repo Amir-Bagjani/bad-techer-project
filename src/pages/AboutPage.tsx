@@ -5,6 +5,7 @@ import "../styles/aboutPage.scss";
 const AboutPage = () => {
     const[showMenu,setShowMenu] = useState(false);
     const[scrollTop,setScrollTop] = useState(false);
+    
     const handleMenu = () => {
         setShowMenu(prev => !prev)
     }
@@ -21,6 +22,7 @@ const AboutPage = () => {
           setShowMenu(false);
           });
     }, []);
+
   return (
     <main id="about-me-page" className="light">
       <header className={showMenu ? "about-header toggle" : "about-header"}>
@@ -148,7 +150,6 @@ const AboutPage = () => {
         </div>
 
       </section>
-
       
       <section className="contact" id="contact">
 
@@ -182,7 +183,6 @@ const AboutPage = () => {
             </div>
 
       </section>
-
 
         {scrollTop && <a href="#home" className="top">
             <img src="/images/scroll-top-img.png" />

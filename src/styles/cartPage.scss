@@ -1,0 +1,91 @@
+@import "config";
+
+#cart-page{
+    font-family: "IRANSans", Arial, Helvetica, sans-serif;
+    background-color: var(--bg-primary-color);
+
+    .heading{
+        margin-bottom: 0;
+    }
+    .cart-page-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      .cart-page-sidebar {
+        flex: 3;
+        position: sticky;
+        top: 0.1rem;
+        background-color: var(--bg-card-color);
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        p{
+            @include grap-text(2rem);
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 2rem;
+        }
+        .discount{
+            border-bottom: var(--border);
+            margin-bottom: 2rem;
+        }
+        a.btn{
+            display: flex;
+            justify-content: center;
+        }
+
+      }
+      .cart-page-content {
+        flex: 7;
+        background-color: var(--bg-card-color);
+        border-radius: 1rem;
+        padding: 2rem;
+
+        .box{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: var(--border);
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+            img{
+                width: 20rem;
+                height: 20rem;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+            .content{
+                h3{
+                    @include title-text(1.8rem);
+                    padding-bottom: 1rem;
+                }
+                p{
+                    @include grap-text(1.5rem);
+                    padding-bottom: 0.5rem;
+                }
+                .btn{
+                    font-size: 1.1rem;
+                    padding: 0.8rem 1.2rem;
+                    i{
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+  
+      }
+    }
+}
+
+@media (max-width: 768px) {
+    #cart-page {
+      .cart-page-container {
+        flex-direction: column;
+        align-items: unset;
+      }
+    }
+  }
