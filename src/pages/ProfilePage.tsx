@@ -55,7 +55,12 @@ const ProfilePage = () => {
           <h3>سلام Amir عزیز !</h3>
           <ul>
             <li>
-              <Link to="purchased-products">
+              <Link to="/profile">
+                <i className="fas fa-chess-rook"></i> حساب کاربری
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile/purchased-products">
                 <i className="fas fa-graduation-cap"></i>دوره های خریداری شده
               </Link>
             </li>

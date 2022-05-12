@@ -3,8 +3,8 @@
 #bookmark-page {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   background-color: var(--bg-primary-color);
-  .heading{
-      margin-bottom: 0;
+  .heading {
+    margin-bottom: 0;
   }
   .bookmark-container {
     margin-top: 2rem;
@@ -12,7 +12,31 @@
     align-items: flex-start;
     gap: 2rem;
     &-sidebar {
-      @include blog-sidebar;
+      flex: 3;
+      position: sticky;
+      top: 0.1rem;
+      border-radius: 1rem;
+      background-color: var(--bg-secondary-color);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      h3 {
+        text-align: center;
+        @include title-text(2rem);
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: var(--border);
+      }
+      ul li a {
+        @include grap-text(1.7rem);
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        &:hover {
+          color: var(--main-color);
+        }
+      }
     }
     &-content {
       flex: 7;
