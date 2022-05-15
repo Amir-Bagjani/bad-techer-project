@@ -1,10 +1,20 @@
 @import "config";
+.light {
+  --font-color: #555;
+  --heading-color: #333;
+  --bg-color: #f9f9f9;
+  --bg-secondary-color: #fff;
+  --bg-primary-color: #e5e5e5;
+  --bg-card-color: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
 
 #login-page-new {
   font-family: "IRANSans", Arial, Helvetica, sans-serif;
   display: grid;
   place-items: center;
   min-height: 100vh;
+  background-color: var(--bg-secondary-color);
 
   .login-container {
     -webkit-box-shadow: -10px 0px 13px -7px #00000002,

@@ -64,17 +64,14 @@ const Navbar = () => {
 
   return (
     <header className={location.pathname === "/" ? "header" : "header active"}>
-      <div className="icons">
-        <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
+      <Link to="/" className="logo">
+        {/* <h1>
+          Bad Teacher
+          <span>Academy</span>
+        </h1> */}
+        <img src="/images/logo-2.svg" alt="bad-teacher-logo" />
+      </Link>
 
-        <i className="fas fa-user" onClick={handleUserMenu}></i>
-
-        <Link to="/cart" id="cart" className="fas fa-shopping-cart">
-          <span>2</span>
-        </Link>
-
-        <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
-      </div>
 
       <nav
         className={menuState === "navbar" ? "navbar active" : "navbar"}
@@ -109,14 +106,17 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <Link to="/" className="logo">
-        <h1>
-          Bad Teacher
-          <span>Academy</span>
-        </h1>
-        {/* <img src="/images/logo-1.svg" alt="bad-teacher-logo" /> */}
-        <img src="/images/logo.svg" alt="bad-teacher-logo" />
-      </Link>
+      <div className="icons">
+        <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
+
+        <i className="fas fa-user" onClick={handleUserMenu}></i>
+
+        <Link to="/cart" id="cart" className="fas fa-shopping-cart">
+          <span>2</span>
+        </Link>
+
+        <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
+      </div>
 
       <div
         className={menuState === "theme" ? "theme-box active" : "theme-box"}
