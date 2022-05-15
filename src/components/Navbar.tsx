@@ -160,6 +160,12 @@ const Navbar = () => {
               <span>خروج از حساب کاربری</span>
             </Link>
           </li>
+          <li>
+            <Link to="/auth">
+              <i className="fas fa-sign-out-alt"></i>{" "}
+              <span>لاگین پیج</span>
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
