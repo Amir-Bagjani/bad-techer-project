@@ -1,19 +1,34 @@
-import { useEffect, useState, useCallback } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  MdOutlineShoppingCart,
+  MdMenu,
+  MdOutlinePlayLesson,
+  MdOutlineWbSunny,
+  MdOutlineDarkMode,
+  MdClose,
+  MdOutlineArticle,
+  MdLogout,
+} from "react-icons/md";
+import { BiUser, BiHomeSmile } from "react-icons/bi";
+import {
+  AiOutlineCrown,
+  AiOutlineYoutube,
+  AiOutlineHeart,
+  AiOutlineBank,
+  AiOutlineInstagram,
+  AiOutlineWhatsApp,
+} from "react-icons/ai";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.scss";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const [user, setUser] = useState(true);
-  const location = useLocation();
   const [menuState, setMenuState] = useState("");
+  const [theme, setTheme] = useState("light");
+  const location = useLocation();
 
   const closeMenuState = useCallback(() => {
     setMenuState("");
-  }, []);
-
-  const handleUserMenu = useCallback(() => {
-    user ? setMenuState("user") : navigate("/auth");
   }, []);
 
   const conditionCloseMenu = useCallback((e: React.MouseEvent<HTMLElement>) => {
@@ -23,21 +38,12 @@ const Navbar = () => {
   const themeHandle = useCallback((theme: string) => {
     if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
+      setTheme("dark");
     } else {
       document.documentElement.removeAttribute("data-theme");
+      setTheme("light");
     }
     localStorage.setItem(`theme`, JSON.stringify(theme));
-    closeMenuState();
-  }, []);
-
-  //system prefer theme
-  const handlePreferTheme = useCallback(() => {
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-    if (query.matches) {
-      themeHandle("dark");
-    } else {
-      themeHandle("light");
-    }
   }, []);
 
   //get theme from local storage for first render
@@ -62,112 +68,171 @@ const Navbar = () => {
     return () => window.addEventListener("scroll", () => closeMenuState());
   }, []);
 
+  //stop scrolling when menu is open
+  useEffect(() => {
+    if (menuState === "navbar") {
+      document.documentElement.setAttribute("overflow", "hidden");
+    } else {
+      document.documentElement.removeAttribute("overflow");
+    }
+  }, [menuState]);
+
   return (
     <header className={location.pathname === "/" ? "header" : "header active"}>
       <Link to="/" className="logo">
-        {/* <h1>
-          Bad Teacher
-          <span>Academy</span>
-        </h1> */}
-        <img src="/images/logo-2.svg" alt="bad-teacher-logo" />
+        {/*[TODO] remove onClick on production mode*/}
+        <img
+          src="/images/logo-2.svg"
+          alt="bad-teacher-logo"
+          onClick={() => setUser((u) => !u)}
+        />
       </Link>
 
+      <MdMenu
+        className="icon"
+        id="menu-button"
+        onClick={() => setMenuState("navbar")}
+      />
 
       <nav
         className={menuState === "navbar" ? "navbar active" : "navbar"}
         onClick={conditionCloseMenu}
       >
-        <ul onClick={closeMenuState}>
+        <ul>
+          <li className="navbar-close" onClick={closeMenuState}>
+            <MdClose className="icon" />
+          </li>
+          <li className="navbar-logo">
+            <div className="img">
+              <img src="/images/logo.svg" alt="bad-teacher-logo" />
+            </div>
+            <div className="icons">
+              <a href="#">
+                <AiOutlineInstagram className="icon" />
+              </a>
+              <a href="#">
+                <AiOutlineWhatsApp className="icon" />
+              </a>
+              <a href="#">
+                <AiOutlineYoutube className="icon" />
+              </a>
+            </div>
+            <p>آکادمی Bad Teacher</p>
+          </li>
+          <li className="navbar-cart">
+            <Link to="/cart">
+              <MdOutlineShoppingCart className="icon" /> سبد خرید
+            </Link>
+          </li>
           <li>
             <Link to="/">
-              <i className="fas fa-home"></i> صفحه اصلی
+              <BiHomeSmile className="icon" /> صفحه اصلی
             </Link>
           </li>
           <li>
             <Link to="/about-me">
-              <i className="fas fa-crown"></i> درباره من
+              <AiOutlineCrown className="icon" /> درباره من
             </Link>
           </li>
           <li>
             <Link to="/courses/34">
-              <i className="fab fa-youtube"></i> کانال یوتیوب
+              <AiOutlineYoutube className="icon" /> کانال یوتیوب
             </Link>
           </li>
           <li>
             <Link to="/courses">
-              <i className="fas fa-graduation-cap"></i> دوره ها
+              <MdOutlinePlayLesson className="icon" /> دوره ها
             </Link>
           </li>
           <li>
             <Link to="/blogs">
-              <i className="fas fa-newspaper"></i> بلاگ
+              <MdOutlineArticle className="icon" /> بلاگ
             </Link>
           </li>
+          {theme === "dark" ? (
+            <li className="navbar-theme" onClick={() => themeHandle("light")}>
+              <a>
+                <MdOutlineWbSunny className="icon" />
+                تم روشن
+              </a>
+            </li>
+          ) : (
+            <li className="navbar-theme" onClick={() => themeHandle("dark")}>
+              <a>
+                <MdOutlineDarkMode className="icon" />
+                تم تاریک
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
 
-      <div className="icons">
-        <i className="fas fa-bars" onClick={() => setMenuState("navbar")}></i>
-
-        <i className="fas fa-user" onClick={handleUserMenu}></i>
-
-        <Link to="/cart" id="cart" className="fas fa-shopping-cart">
-          <span>2</span>
-        </Link>
-
-        <i className="fas fa-adjust" onClick={() => setMenuState("theme")}></i>
-      </div>
-
-      <div
-        className={menuState === "theme" ? "theme-box active" : "theme-box"}
-        onClick={conditionCloseMenu}
-      >
-        <ul>
-          <li onClick={() => themeHandle("dark")}>
-            <i className="fas fa-moon"></i> <span>تم تاریک</span>
-          </li>
-          <li onClick={() => themeHandle("light")}>
-            <i className="fas fa-sun"></i> <span>تم روشن</span>
-          </li>
-          <li onClick={handlePreferTheme}>
-            <i className="fas fa-adjust"></i>
-            <span>سیستم</span>
-          </li>
-        </ul>
-      </div>
-
-      <div
-        className={menuState === "user" ? "user-box active" : "user-box"}
+      {menuState === "user-box" && <div
+        className="drop-user-content"
         onClick={conditionCloseMenu}
       >
         <ul onClick={closeMenuState}>
           <li>
-              <i className="fas fa-user"></i> <span>سینا پدر احمدی <br /> 09391111234</span>
+            <BiUser className="icon" />{" "}
+            <span>
+              سینا پدر احمدی <br /> 09391111234
+            </span>
           </li>
           <li>
             <Link to="/profile">
-              <i className="fas fa-chess-rook"></i> <span>حساب کاربری</span>
+              <AiOutlineBank className="icon" /> <span>حساب کاربری</span>
             </Link>
           </li>
           <li>
             <Link to="/profile/bookmark">
-              <i className="fas fa-heart"></i> <span>علاقه مندی ها</span>
+              <AiOutlineHeart className="icon" /> <span>علاقه مندی ها</span>
             </Link>
           </li>
           <li>
             <Link to="">
-              <i className="fas fa-sign-out-alt"></i>{" "}
-              <span>خروج از حساب کاربری</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/auth">
-              <i className="fas fa-sign-out-alt"></i>{" "}
-              <span>لاگین پیج</span>
+              <MdLogout className="icon" /> <span>خروج از حساب کاربری</span>
             </Link>
           </li>
         </ul>
-      </div>
+      </div>}
+
+      {!user && (
+        <>
+          <Link to="/login" className="navbar-login">
+            ورود / ثبت نام
+          </Link>
+          <Link to="/login" className="navbar-login-mobile">
+            <BiUser className="icon" />
+          </Link>
+        </>
+      )}
+
+      {user && (
+        <div className="icons">
+          <ul>
+            {theme === "dark" ? (
+              <li onClick={() => themeHandle("light")}>
+                <MdOutlineWbSunny className="icon" />
+              </li>
+            ) : (
+              <li onClick={() => themeHandle("dark")}>
+                <MdOutlineDarkMode className="icon" />
+              </li>
+            )}
+            <li>
+              <Link to="/cart">
+                <MdOutlineShoppingCart className="icon" />
+              </Link>
+            </li>
+            <li
+              className="navbar-user"
+              onClick={() => setMenuState("user-box")}
+            >
+              <BiUser className="icon" />
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { Formik, FormikHelpers, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "../styles/loginPageNew.scss";
-import { YoutubeSearchedFor, YouTube, Instagram, WhatsApp } from "@material-ui/icons";
+// import { YoutubeSearchedFor, YouTube, Instagram, WhatsApp } from "@material-ui/icons";
 
 //enum for showing area
 enum Area {
@@ -119,9 +119,9 @@ const LoginPageNew = () => {
         )}
       </div>
       <div className="login-page-new-footer">
-        <a href="#"><YouTube className="icon" /></a>
-        <a href="#"><Instagram className="icon" /></a>
-        <a href="#"><WhatsApp className="icon" /></a>
+        {/* <a href="#"><YouTube className="icon" /></a> */}
+        {/* <a href="#"><Instagram className="icon" /></a> */}
+        {/* <a href="#"><WhatsApp className="icon" /></a> */}
         <p>آکادمی زبان Bad Teacher</p>
       </div>
     </main>
