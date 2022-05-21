@@ -7,7 +7,7 @@ import "../styles/loginPageNew.scss";
 //enum for showing area
 enum Area {
   step1 = "step1",
-  step2 = "step2"
+  step2 = "step2",
 }
 
 //form step 1
@@ -15,6 +15,7 @@ type Values = Yup.InferType<typeof validationSchema>;
 const validationSchema = Yup.object({
   phoneNumber: Yup.string()
     .required("شماره تلفن را وارد کنید")
+    .max(11, "شماره موبایل باید 11 رقم باشد")
     .matches(
       /(09[0-3][0-9]-?[0-9]{3}-?[0-9]{4})/,
       "شماره موبایل را صحیح وارد کنید"
@@ -39,8 +40,8 @@ const LoginPageNew = () => {
   const [area, setArea] = useState<Area>(Area.step1);
 
   const changeStep = useCallback(() => {
-    setArea(Area.step1)
-  }, [])
+    setArea(Area.step1);
+  }, []);
 
   return (
     <main id="login-page-new" className="light">
@@ -71,6 +72,7 @@ const LoginPageNew = () => {
                     placeholder="09123456789"
                     name="phoneNumber"
                     id="phoneNumber"
+                    maxLength="11"
                   />
                   <i className="fas fa-phone-alt"></i>
                 </label>
@@ -97,13 +99,13 @@ const LoginPageNew = () => {
                 { setSubmitting }: FormikHelpers<Values2>
               ) => {
                 setTimeout(() => {
-                  console.log(values);                  
+                  console.log(values);
                   setSubmitting(false);
                 }, 500);
               }}
             >
               <Form className="form-step2">
-                <Field type="number" placeholder="کد تایید"  name="verifyCode" />
+                <Field type="number" placeholder="کد تایید" name="verifyCode" maxLength="5" />
                 <ErrorMessage
                   component={"p"}
                   className="error"
