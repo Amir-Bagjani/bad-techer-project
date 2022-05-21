@@ -19,11 +19,11 @@ const data = [
   {name: "شهریور", total: 500},
 ];
 
-const AdminChart = () => {
+const AdminChart = ({ aspect, title }:{aspect: number; title: string}) => {
   return (
     <div className="admin-chart">
-      <p className="title">درآمد 6 ماه گذشته</p>
-      <ResponsiveContainer width="100%" aspect={2 / 1}>
+      <p className="title">{title}</p>
+      <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={730}
           height={250}
