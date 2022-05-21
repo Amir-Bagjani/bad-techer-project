@@ -1,0 +1,65 @@
+.admin-datatable {
+  height: 65rem;
+  padding: 2rem;
+  * {
+    font-size: 1.4rem;
+    font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  }
+
+  .css-17jjc08-MuiDataGrid-footerContainer {
+    direction: ltr;
+    * {
+      font-size: 1.5rem;
+    }
+  }
+
+  .cellWithImg {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .cellImg {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .cellWithStatus {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    &.active {
+      color: green;
+      background-color: rgba(0, 128, 0, 0.2);
+    }
+    &.pending {
+      color: goldenrod;
+      background-color: rgba(218, 165, 32, 0.2);
+    }
+    &.passive {
+      color: crimson;
+      background-color: rgba(255, 0, 0, 0.2);
+    }
+  }
+
+  .cell-action {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .view-button,
+    .delete-button {
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.5rem;
+      color: darkblue;
+      border: 1px dashed rgba(0, 0, 139, 0.5);
+      cursor: pointer;
+    }
+    .delete-button {
+      color: crimson;
+      border: 1px dashed rgba(220, 20, 60, 0.5);
+    }
+  }
+}

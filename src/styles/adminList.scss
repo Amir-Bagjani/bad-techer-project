@@ -1,0 +1,12 @@
+.admin-list {
+  font-family: "IRANSans", arial, helvetica, sans-serif;
+  display: flex;
+// 
+  .admin-icon {
+    cursor: pointer;
+  }
+
+  .list-container {
+    flex: 6;
+  }
+}
