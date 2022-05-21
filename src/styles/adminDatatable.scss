@@ -6,6 +6,26 @@
     font-family: "IRANSans", Arial, Helvetica, sans-serif;
   }
 
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .link{
+      padding: 0.5em;
+      cursor: pointer;
+      background-color: rgba(0, 128, 0, 0.1);
+      color: green;
+      border-radius: 0.5rem;
+    }
+
+    .title{
+      color: gray;
+      font-size: 2rem;
+    }
+  }
+
   .css-17jjc08-MuiDataGrid-footerContainer {
     direction: ltr;
     * {

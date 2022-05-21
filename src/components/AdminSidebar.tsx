@@ -10,26 +10,29 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { BsCreditCard } from "react-icons/bs";
 import "../styles/adminSidebar.scss";
 import { AiOutlineAppstore, AiOutlineSetting } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const AdminSidebar = () => {
   return (
     <div className="admin-sidebar">
       <div className="top">
-        <h1 className="logo">BAD TECHER</h1>
+        <Link to="/admin">
+          <h1 className="logo">BAD TECHER</h1>
+        </Link>
       </div>
       <div className="center">
         <ul>
           <p className="title">بخش اصلی</p>
           <li>
             <AiOutlineAppstore className="admin-icon" />
-            <span>داشبورد</span>
+            <Link to="/admin"><span>داشبورد</span></Link>
           </li>
           <li>
-            <BiUser className="admin-icon" /> <span>کاربرها</span>
+            <BiUser className="admin-icon" /> <Link to="/admin/users"><span>کاربرها</span></Link>
           </li>
           <li>
             <BiStore className="admin-icon" />
-            <span>محصولات</span>
+            <Link to="/admin/products"><span>محصولات</span></Link>
           </li>
           <li>
             <MdNotificationsNone className="admin-icon" />
