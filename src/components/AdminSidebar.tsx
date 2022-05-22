@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiUser, BiStore } from "react-icons/bi";
 import {
+  MdClose,
   MdLogout,
+  MdMenu,
   MdNotificationsNone,
   MdOutlinePsychology,
   MdSettingsSystemDaydream,
@@ -14,10 +16,18 @@ import { Link } from "react-router-dom";
 import { useThemeContext } from "../context/themeContext";
 
 const AdminSidebar = () => {
-  const {darkTheme, lightTheme} = useThemeContext();
+  const { darkTheme, lightTheme } = useThemeContext();
+  const [menu, setMenu] = useState(false);
 
   return (
-    <div className="admin-sidebar">
+    <div className={menu ? "admin-sidebar active" : "admin-sidebar"}>
+      <div className="ham-menu" onClick={() => setMenu(prev => !prev)}>
+        {menu ? (
+          <MdClose className="admin-icon" />
+        ) : (
+          <MdMenu className="admin-icon" />
+        )}
+      </div>
       <div className="top">
         <Link to="/admin">
           <h1 className="logo">BAD TECHER</h1>
@@ -28,14 +38,21 @@ const AdminSidebar = () => {
           <p className="title">بخش اصلی</p>
           <li>
             <AiOutlineAppstore className="admin-icon" />
-            <Link to="/admin"><span>داشبورد</span></Link>
+            <Link to="/admin">
+              <span>داشبورد</span>
+            </Link>
           </li>
           <li>
-            <BiUser className="admin-icon" /> <Link to="/admin/users"><span>کاربرها</span></Link>
+            <BiUser className="admin-icon" />{" "}
+            <Link to="/admin/users">
+              <span>کاربرها</span>
+            </Link>
           </li>
           <li>
             <BiStore className="admin-icon" />
-            <Link to="/admin/products"><span>محصولات</span></Link>
+            <Link to="/admin/products">
+              <span>محصولات</span>
+            </Link>
           </li>
           <li>
             <MdNotificationsNone className="admin-icon" />
@@ -70,8 +87,8 @@ const AdminSidebar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <div className="color-option" onClick={lightTheme}></div>
-        <div className="color-option" onClick={darkTheme}></div>
+        <span className="color-option" onClick={lightTheme}></span>
+        <span className="color-option" onClick={darkTheme}></span>
       </div>
     </div>
   );

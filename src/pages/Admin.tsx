@@ -24,7 +24,7 @@ const Admin = () => {
         </div>
         <div className="charts">
           <AdminFeatured />
-          <AdminChart aspect={3 / 1} title="درآمد 6 ماه گذشته" />
+          <AdminChart aspect={2 / 1} title="درآمد 6 ماه گذشته" />
         </div>
         <div className="list-container">
           <p className="list-title">آخرین تراکنشها</p>

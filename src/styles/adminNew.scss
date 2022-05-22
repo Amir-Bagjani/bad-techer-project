@@ -1,6 +1,7 @@
 .admin-new {
   font-family: "IRANSans", arial, helvetica, sans-serif;
   display: flex;
+  min-height: 100vh;
 
   .admin-icon {
     cursor: pointer;
@@ -50,7 +51,7 @@
           font-size: 1.5rem;
 
           .form-input {
-            width: 40%;
+            flex: 1 1 40%;
 
             label {
               display: flex;
@@ -74,19 +75,34 @@
             }
           }
 
-          button{
+          button {
             font-family: "IRANSans", arial, helvetica, sans-serif;
 
-              width: 15rem;
-              padding: 1rem;
-              background-color: teal;
-              color: #FFF;
-              font-weight: bold;
-              cursor: pointer;
-              margin-top: 1rem;
+            width: 15rem;
+            padding: 1rem;
+            background-color: teal;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-new {
+    .bottom {
+      flex-flow: column;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .admin-new {
+    form {
+      flex-flow: column;
     }
   }
 }

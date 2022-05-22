@@ -4,7 +4,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   AreaChart,
   Area,
@@ -23,9 +22,8 @@ const AdminChart = ({ aspect, title }:{aspect: number; title: string}) => {
   return (
     <div className="admin-chart">
       <p className="title">{title}</p>
-      <ResponsiveContainer width="100%" aspect={aspect}>
+      <ResponsiveContainer width="100%" aspect={aspect} className="admin-chart-">
         <AreaChart
-          width={730}
           height={250}
           data={data}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}

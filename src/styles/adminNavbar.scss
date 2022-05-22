@@ -3,12 +3,6 @@
   font-size: 1.8rem;
   color: #555;
   border-bottom: 1px solid lightgray;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // background-color: #fff;
-  
 
   .admin-wrapper {
     height: 100%;
@@ -26,7 +20,7 @@
       border-radius: 0.2rem;
       input {
         font-family: "IRANSans", Arial, Helvetica, sans-serif;
-        background-color: transparent ;
+        background-color: transparent;
       }
       .admin-icon {
         font-size: 2rem;
@@ -68,6 +62,16 @@
         .admin-icon {
           font-size: 2.2rem;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .admin-navbar {
+    .admin-wrapper {
+      .search {
+        display: none;
       }
     }
   }

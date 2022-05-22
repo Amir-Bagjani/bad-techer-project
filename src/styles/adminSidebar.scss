@@ -5,6 +5,21 @@
   border-left: 1px solid lightgray;
   min-height: 100vh;
   overflow-y: auto;
+
+  .ham-menu {
+    position: fixed;
+    z-index: 100000;
+    top: 0.6rem;
+    left: 2rem;
+    font-size: 2.5rem;
+    color: black;
+    padding: 1rem;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+  }
+
   .top {
     height: 6rem;
     display: flex;
@@ -12,7 +27,7 @@
     justify-content: center;
     border-bottom: 0.5px solid lightgray;
     .logo {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
       color: #7451f8;
     }
@@ -46,10 +61,8 @@
 
   .bottom {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1rem 1rem 0 0;
     gap: 1rem;
-    margin: 1rem;
     .color-option {
       width: 3rem;
       height: 3rem;
@@ -62,6 +75,28 @@
       &:nth-child(2) {
         background-color: #333;
       }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .admin-sidebar {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -200%;
+    bottom: 0;
+    width: 20rem;
+    overflow-y: auto;
+    background-color: #fff;
+    transition: all 0.2s linear;
+
+    &.active {
+      right: 0;
+      box-shadow: 0 0 0 1000px rgba(54, 53, 53, 0.7);
+    }
+    .ham-menu {
+      display: flex;
     }
   }
 }

@@ -1,6 +1,7 @@
 .admin-list-detail {
   font-family: "IRANSans", arial, helvetica, sans-serif;
   display: flex;
+  min-height: 100vh;
 
   .admin-icon {
     cursor: pointer;
@@ -8,6 +9,7 @@
 
   .list-detail-container {
     flex: 6;
+    overflow-x: hidden;
 
     .top {
       display: flex;
@@ -78,6 +80,10 @@
         margin: 2rem;
         padding: 2rem;
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.5);
+        overflow-x: auto;
+        ::-webkit-scrollbar {
+          height: 0.7rem;
+        }
 
         .title{
             font-size: 1.5rem;
@@ -85,6 +91,16 @@
             margin-bottom: 2rem;
         }
 
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  .admin-list-detail {
+    .list-detail-container {
+      .top{
+        flex-flow: column;
+      }
     }
   }
 }

@@ -4,10 +4,15 @@
 .admin-list.dark {
   background-color: #222;
   color: rgb(213, 209, 209);
-
+  
   .admin-sidebar {
+    background-color: #222;
     color: rgb(213, 209, 209);
     border-left: 1px solid rgba(211, 211, 211, 0.247);
+    .ham-menu{
+      color: #FFF;
+      background-color: #423f3f;
+    }
     .top {
       border-bottom: 1px solid rgba(211, 211, 211, 0.247);
     }
@@ -15,6 +20,7 @@
       background-color: #444;
     }
   }
+
   .admin-navbar {
     color: rgb(213, 209, 209);
     border-bottom: 1px solid rgba(211, 211, 211, 0.247);
@@ -26,17 +32,21 @@
       }
     }
   }
+
   .admin-widget {
     color: rgb(213, 209, 209);
   }
+
   .admin-featured,
   .admin-chart,
   .list-container {
     box-shadow: 2px 4px 10px 1px rgba(27, 26, 26, 0.47);
   }
+
   .chart-grid {
     stroke: rgba(100, 99, 99, 0.578);
   }
+
   .table {
     background-color: #111;
     .table-cell {

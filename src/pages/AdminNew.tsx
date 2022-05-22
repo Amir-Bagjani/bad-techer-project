@@ -4,7 +4,6 @@ import AdminSidebar from "../components/AdminSidebar";
 import { MdDriveFolderUpload } from "react-icons/md";
 import type { Inputs } from "../formSource";
 import { useState } from "react";
-import "../styles/adminDark.scss";
 import { useThemeContext } from "../context/themeContext";
 
 interface AdminNewProps {

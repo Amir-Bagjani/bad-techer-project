@@ -60,8 +60,6 @@ const rows = [
   },
 ];
 
-
-
 const AdminTable = () => {
   return (
     <div className="admin-table">

@@ -43,6 +43,7 @@ const AdminNavbar = () => {
           <MdOutlineSearch className="admin-icon" />
           <input type="search" placeholder="کلید واژه را وارد کنید" />
         </div>
+
       </div>
     </div>
   );
