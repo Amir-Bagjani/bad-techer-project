@@ -1,6 +1,8 @@
 .admin-home {
   font-family: "IRANSans", arial, helvetica, sans-serif;
   display: flex;
+  background-color: #fff;
+
   .admin-icon {
     cursor: pointer;
   }
@@ -21,8 +23,7 @@
       display: flex;
       width: 100%;
       gap: 2rem;
-      padding: 2rem;
-      padding: 0.5em 2rem;
+      padding: 0.5rem 2rem;
     }
 
     .list-container {
@@ -46,6 +47,7 @@
 
 @media (max-width: 870px) {
   .admin-home {
+    overflow-y: auto !important;
     .home-container {
       .charts{
         flex-flow: column-reverse;

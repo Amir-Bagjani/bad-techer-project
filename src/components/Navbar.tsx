@@ -68,14 +68,6 @@ const Navbar = () => {
     return () => window.addEventListener("scroll", () => closeMenuState());
   }, []);
 
-  //stop scrolling when menu is open
-  useEffect(() => {
-    if (menuState === "navbar") {
-      document.documentElement.setAttribute("overflow", "hidden");
-    } else {
-      document.documentElement.removeAttribute("overflow");
-    }
-  }, [menuState]);
 
   return (
     <header className={location.pathname === "/" ? "header" : "header active"}>
@@ -135,6 +127,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/admin">
+              <AiOutlineCrown className="icon" /> ادمین پنل
+            </Link>
+          </li>
+          <li>
             <Link to="/courses/34">
               <AiOutlineYoutube className="icon" /> کانال یوتیوب
             </Link>
@@ -167,34 +164,33 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      {menuState === "user-box" && <div
-        className="drop-user-content"
-        onClick={conditionCloseMenu}
-      >
-        <ul onClick={closeMenuState}>
-          <li>
-            <BiUser className="icon" />{" "}
-            <span>
-              سینا پدر احمدی <br /> 09391111234
-            </span>
-          </li>
-          <li>
-            <Link to="/profile">
-              <AiOutlineBank className="icon" /> <span>حساب کاربری</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/profile/bookmark">
-              <AiOutlineHeart className="icon" /> <span>علاقه مندی ها</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="">
-              <MdLogout className="icon" /> <span>خروج از حساب کاربری</span>
-            </Link>
-          </li>
-        </ul>
-      </div>}
+      {menuState === "user-box" && (
+        <div className="drop-user-content" onClick={conditionCloseMenu}>
+          <ul onClick={closeMenuState}>
+            <li>
+              <BiUser className="icon" />{" "}
+              <span>
+                سینا پدر احمدی <br /> 09391111234
+              </span>
+            </li>
+            <li>
+              <Link to="/profile">
+                <AiOutlineBank className="icon" /> <span>حساب کاربری</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile/bookmark">
+                <AiOutlineHeart className="icon" /> <span>علاقه مندی ها</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                <MdLogout className="icon" /> <span>خروج از حساب کاربری</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
 
       {!user && (
         <>
