@@ -1,0 +1,43 @@
+#not-found-page {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary-color);
+  padding-top: 0;
+  @media (max-width: 768px) {
+    padding-top: 13rem;
+  }
+
+  .container {
+    color: var(--font-color);
+    display: flex;
+    transition: all 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      min-height: auto;
+    }
+
+    img {
+      width: 30%;
+    }
+
+    .content {
+      text-align: center;
+      .text {
+        margin-bottom: 3rem;
+        font-size: 3rem;
+      }
+
+      a {
+        display: inline-block;
+        background-color: var(--bg-card-color);
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-inline: 1rem;
+      }
+    }
+  }
+}
