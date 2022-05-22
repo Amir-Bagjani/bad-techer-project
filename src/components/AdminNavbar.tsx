@@ -1,4 +1,3 @@
-import React from "react";
 import {
   MdNotificationsNone,
   MdOutlineChat,
@@ -7,9 +6,12 @@ import {
   MdOutlineLanguage,
   MdOutlineSearch,
 } from "react-icons/md";
+import { useThemeContext } from "../context/themeContext";
 import "../styles/adminNavbar.scss";
 
 const AdminNavbar = () => {
+  const {toggleTheme} = useThemeContext();
+  
   return (
     <div className="admin-navbar">
       <div className="admin-wrapper">
@@ -18,7 +20,7 @@ const AdminNavbar = () => {
             <img src="/images/photo-owner.jpeg" alt="user-avatar" className="avatar" />
           </div>
           <div className="item">
-            <MdOutlineDarkMode className="admin-icon" />
+            <MdOutlineDarkMode className="admin-icon" onClick={toggleTheme} />
           </div>
           <div className="item">
             <MdNotificationsNone className="admin-icon" />
@@ -33,7 +35,7 @@ const AdminNavbar = () => {
           </div>
           <div className="item">
             <MdOutlineLanguage className="admin-icon"/>
-            English
+            فارسی
           </div>
         </div>
 

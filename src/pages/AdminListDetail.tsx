@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
 import AdminChart from "../components/AdminChart";
 import AdminNavbar from "../components/AdminNavbar";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminTable from "../components/AdminTable";
+import { useThemeContext } from "../context/themeContext";
 import "../styles/adminListDetail.scss";
 
 const AdminListDetail = () => {
+  const {isDark} = useThemeContext();
+
   return (
-    <div className="admin-list-detail">
+    <div className={isDark ? "admin-list-detail dark" : "admin-list-detail"}>
       <AdminSidebar />
       <div className="list-detail-container">
         <AdminNavbar />

@@ -11,8 +11,11 @@ import { BsCreditCard } from "react-icons/bs";
 import "../styles/adminSidebar.scss";
 import { AiOutlineAppstore, AiOutlineSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useThemeContext } from "../context/themeContext";
 
 const AdminSidebar = () => {
+  const {darkTheme, lightTheme} = useThemeContext();
+
   return (
     <div className="admin-sidebar">
       <div className="top">
@@ -67,8 +70,8 @@ const AdminSidebar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <div className="color-option"></div>
-        <div className="color-option"></div>
+        <div className="color-option" onClick={lightTheme}></div>
+        <div className="color-option" onClick={darkTheme}></div>
       </div>
     </div>
   );

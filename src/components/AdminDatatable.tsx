@@ -1,4 +1,4 @@
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import "../styles/adminDatatable.scss";
 import { userRows, userColumns } from "../datatableUsers";
 import { Link, useLocation } from "react-router-dom";
@@ -31,6 +31,7 @@ const AdminDatatable = () => {
         <Link className="link" to="new">اضافه کردن {loc === "users" ? "کاربر" : "محصول"} جدید</Link>
       </div>
       <DataGrid
+      className="dataGrid"
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}

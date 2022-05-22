@@ -1,0 +1,85 @@
+.admin-home.dark,
+.admin-new.dark,
+.admin-list-detail.dark,
+.admin-list.dark {
+  background-color: #222;
+  color: rgb(213, 209, 209);
+
+  .admin-sidebar {
+    color: rgb(213, 209, 209);
+    border-left: 1px solid rgba(211, 211, 211, 0.247);
+    .top {
+      border-bottom: 1px solid rgba(211, 211, 211, 0.247);
+    }
+    .center ul li:hover {
+      background-color: #444;
+    }
+  }
+  .admin-navbar {
+    color: rgb(213, 209, 209);
+    border-bottom: 1px solid rgba(211, 211, 211, 0.247);
+
+    .search {
+      border: 1px solid rgba(211, 211, 211, 0.247);
+      input {
+        color: rgb(213, 209, 209);
+      }
+    }
+  }
+  .admin-widget {
+    color: rgb(213, 209, 209);
+  }
+  .admin-featured,
+  .admin-chart,
+  .list-container {
+    box-shadow: 2px 4px 10px 1px rgba(27, 26, 26, 0.47);
+  }
+  .chart-grid {
+    stroke: rgba(100, 99, 99, 0.578);
+  }
+  .table {
+    background-color: #111;
+    .table-cell {
+      color: gray !important;
+    }
+  }
+
+  .admin-datatable {
+    .dataGrid,
+    .view-button {
+      color: gray !important;
+      border: 1px solid gray;
+    }
+    .css-17jjc08-MuiDataGrid-footerContainer {
+      * {
+        color: gray;
+      }
+    }
+  }
+
+  .new-container {
+    form {
+      input {
+        background-color: transparent;
+      }
+    }
+    .top,
+    .bottom {
+      box-shadow: 2px 4px 10px 1px rgba(27, 26, 26, 0.47) !important;
+    }
+  }
+
+  .list-detail-container {
+    .bottom,
+    .top .left {
+      box-shadow: 2px 4px 10px 1px rgba(27, 26, 26, 0.47) !important;
+    }
+    .edit-btn {
+      color: lightgray !important;
+      background-color: gray !important;
+    }
+    .item-title {
+      color: rgb(160, 157, 157) !important;
+    }
+  }
+}

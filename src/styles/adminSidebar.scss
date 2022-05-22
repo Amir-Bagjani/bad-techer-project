@@ -2,9 +2,9 @@
   flex: 1;
   font-size: 1.5rem;
   color: gray;
+  border-left: 1px solid lightgray;
   min-height: 100vh;
   overflow-y: auto;
-  border-left: 1px solid lightgray;
   .top {
     height: 6rem;
     display: flex;

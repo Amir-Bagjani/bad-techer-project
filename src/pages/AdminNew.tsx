@@ -4,6 +4,8 @@ import AdminSidebar from "../components/AdminSidebar";
 import { MdDriveFolderUpload } from "react-icons/md";
 import type { Inputs } from "../formSource";
 import { useState } from "react";
+import "../styles/adminDark.scss";
+import { useThemeContext } from "../context/themeContext";
 
 interface AdminNewProps {
   inputs: Inputs[];
@@ -12,6 +14,7 @@ interface AdminNewProps {
 
 const AdminNew = ({ inputs, title }: AdminNewProps) => {
     const [img,setImg] = useState<File | null>(null);
+    const {isDark} = useThemeContext();
 
     const handleImgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setImg(null);
@@ -29,7 +32,7 @@ const AdminNew = ({ inputs, title }: AdminNewProps) => {
     }    
 
   return (
-    <div className="admin-new">
+    <div className={isDark ? "admin-new dark" : "admin-new"}>
       <AdminSidebar />
       <div className="new-container">
         <AdminNavbar />

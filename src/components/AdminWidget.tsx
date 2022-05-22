@@ -15,13 +15,13 @@ type Data = {
   icon: ReactNode;
 };
 
+let data: Data = {
+  title: "",
+  isMony: false,
+  link: "",
+  icon: "",
+};
 const AdminWidget = ({ type }: { type: string }) => {
-  let data: Data = {
-    title: "",
-    isMony: false,
-    link: "",
-    icon: "",
-  };
 
   switch (type) {
     case "user":

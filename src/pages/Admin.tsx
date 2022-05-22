@@ -4,11 +4,15 @@ import AdminNavbar from "../components/AdminNavbar";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminTable from "../components/AdminTable";
 import AdminWidget from "../components/AdminWidget";
+import { useThemeContext } from "../context/themeContext";
 import "../styles/admin.scss";
+import "../styles/adminDark.scss";
 
 const Admin = () => {
+  const {isDark} = useThemeContext();
+
   return (
-    <div className="admin-home">
+    <div className={isDark ? "admin-home dark" : "admin-home"}>
       <AdminSidebar />
       <div className="home-container">
         <AdminNavbar />
