@@ -19,13 +19,16 @@ import {
 } from "react-icons/ai";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import useTheme from "../hooks/useTheme";
+import useCloseDropDown from "../hooks/useCloseDropDown";
 import "../styles/navbar.scss";
 
 const Navbar = () => {
   const [user, setUser] = useState(true);
   const [menuState, setMenuState] = useState("");
-  const [theme, setTheme] = useState("light");
+  const userBox = useRef<any>();
   const location = useLocation();
+  const { theme, lightTheme, darkTheme } = useTheme();
 
   const closeMenuState = useCallback(() => {
     setMenuState("");
@@ -35,26 +38,8 @@ const Navbar = () => {
     if (e.target === e.currentTarget) closeMenuState();
   }, []);
 
-  const themeHandle = useCallback((theme: string) => {
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      setTheme("dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-      setTheme("light");
-    }
-    localStorage.setItem(`theme`, JSON.stringify(theme));
-  }, []);
-
-  //get theme from local storage for first render
-  useEffect(() => {
-    const isTheme = localStorage.getItem(`theme`);
-    if (isTheme) {
-      themeHandle(JSON.parse(isTheme));
-    } else {
-      themeHandle("light");
-    }
-  }, []);
+  //close drop-down when click outside the box
+  useCloseDropDown(userBox, closeMenuState);
 
   useEffect(() => {
     if (window.innerWidth <= 768) closeMenuState();
@@ -63,11 +48,10 @@ const Navbar = () => {
 
   //close menu navbar
   useEffect(() => {
-    window.addEventListener("scroll", () => closeMenuState());
+    window.addEventListener("scroll", closeMenuState);
 
-    return () => window.addEventListener("scroll", () => closeMenuState());
+    return () => window.removeEventListener("scroll", closeMenuState);
   }, []);
-
 
   return (
     <header className={location.pathname === "/" ? "header" : "header active"}>
@@ -147,14 +131,14 @@ const Navbar = () => {
             </Link>
           </li>
           {theme === "dark" ? (
-            <li className="navbar-theme" onClick={() => themeHandle("light")}>
+            <li className="navbar-theme" onClick={lightTheme}>
               <a>
                 <MdOutlineWbSunny className="icon" />
                 تم روشن
               </a>
             </li>
           ) : (
-            <li className="navbar-theme" onClick={() => themeHandle("dark")}>
+            <li className="navbar-theme" onClick={darkTheme}>
               <a>
                 <MdOutlineDarkMode className="icon" />
                 تم تاریک
@@ -163,34 +147,6 @@ const Navbar = () => {
           )}
         </ul>
       </nav>
-
-      {menuState === "user-box" && (
-        <div className="drop-user-content" onClick={conditionCloseMenu}>
-          <ul onClick={closeMenuState}>
-            <li>
-              <BiUser className="icon" />{" "}
-              <span>
-                سینا پدر احمدی <br /> 09391111234
-              </span>
-            </li>
-            <li>
-              <Link to="/profile">
-                <AiOutlineBank className="icon" /> <span>حساب کاربری</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/profile/bookmark">
-                <AiOutlineHeart className="icon" /> <span>علاقه مندی ها</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                <MdLogout className="icon" /> <span>خروج از حساب کاربری</span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
 
       {!user && (
         <>
@@ -207,11 +163,11 @@ const Navbar = () => {
         <div className="icons">
           <ul>
             {theme === "dark" ? (
-              <li onClick={() => themeHandle("light")}>
+              <li onClick={lightTheme}>
                 <MdOutlineWbSunny className="icon" />
               </li>
             ) : (
-              <li onClick={() => themeHandle("dark")}>
+              <li onClick={darkTheme}>
                 <MdOutlineDarkMode className="icon" />
               </li>
             )}
@@ -220,11 +176,43 @@ const Navbar = () => {
                 <MdOutlineShoppingCart className="icon" />
               </Link>
             </li>
-            <li
-              className="navbar-user"
-              onClick={() => setMenuState("user-box")}
-            >
-              <BiUser className="icon" />
+            <li className="navbar-user">
+              {menuState === "user-box" ? (
+                <MdClose className="icon" onClick={closeMenuState} />
+              ) : (
+                <BiUser
+                  className="icon"
+                  onClick={() => setMenuState("user-box")}
+                />
+              )}
+              {menuState === "user-box" && (
+                <ul className="drop-user-content" ref={userBox}>
+                  <li>
+                    <BiUser className="icon" />{" "}
+                    <span>
+                      سینا پدر احمدی <br /> 09391111234
+                    </span>
+                  </li>
+                  <li>
+                    <Link to="/profile">
+                      <AiOutlineBank className="icon" />{" "}
+                      <span>حساب کاربری</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/profile/bookmark">
+                      <AiOutlineHeart className="icon" />{" "}
+                      <span>علاقه مندی ها</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="">
+                      <MdLogout className="icon" />{" "}
+                      <span>خروج از حساب کاربری</span>
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>
