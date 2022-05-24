@@ -5,7 +5,6 @@ import Admin from "./pages/Admin";
 import AdminList from "./pages/AdminList";
 import AdminListDetail from "./pages/AdminListDetail";
 import AdminNew from "./pages/AdminNew";
-import LoginPage from "./pages/LoginPage";
 import LoginPageNew from "./pages/LoginPageNew";
 import { ThemeContextProvider } from "./context/themeContext"
 
@@ -16,7 +15,6 @@ function App() {
     <ThemeContextProvider>
       <Routes>
         <Route path="/about-me" element={<AboutPage />} />
-        <Route path="/auth" element={<LoginPage />} />
         <Route path="/login" element={<LoginPageNew />} />
         <Route path="/admin">
             <Route index element={<Admin />} />

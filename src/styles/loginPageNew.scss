@@ -45,26 +45,25 @@
         align-items: center;
         gap: 0.5rem;
 
-        input[type="tel"] {
+        input[type="text"] {
           font-family: "IRANSans", Arial, Helvetica, sans-serif;
           direction: ltr;
           background-color: transparent;
           width: 100%;
           padding: 0 1rem;
         }
-        i {
+        & > .icon {
           color: gray;
           border-right: var(--border);
           height: 100%;
-          display: flex;
-          align-items: center;
+          width: 3rem;
           padding-right: 1rem;
         }
       }
     }
 
     .form-step2 {
-      input[type="number"] {
+      input[type="text"] {
         font-family: "IRANSans", Arial, Helvetica, sans-serif;
         border: var(--border);
         background-color: transparent;
@@ -89,9 +88,6 @@
       background-color: var(--main-color);
       color: #fff;
     }
-    input[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
 
     p {
       @include title-text(1.5rem);
@@ -114,17 +110,17 @@
       }
     }
 
-    i.fa-long-arrow-alt-right {
+    & > .icon {
       position: absolute;
       top: 5rem;
-      right: 2rem;
-      font-size: 2.5rem;
+      left: 2rem;
+      font-size: 3rem;
     }
   }
 
   .login-page-new-footer {
-    margin-top: auto;
-    margin-bottom: 3rem;
+    margin-top: 0;
+    margin-bottom: 6rem;
     .icon{
       width: 4rem;
       font-size: 3rem;
@@ -132,7 +128,7 @@
     }
     p{
       @include grap-text(1.2rem);
-      margin-top: 2erm;
+      margin-top: 2rem;
     }
   }
 }

@@ -41,12 +41,13 @@ const Navbar = () => {
   //close drop-down when click outside the box
   useCloseDropDown(userBox, closeMenuState);
 
+  //close menu when location change
   useEffect(() => {
-    if (window.innerWidth <= 768) closeMenuState();
+    closeMenuState();
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  //close menu navbar
+  //close menu navbar when scroll
   useEffect(() => {
     window.addEventListener("scroll", closeMenuState);
 
