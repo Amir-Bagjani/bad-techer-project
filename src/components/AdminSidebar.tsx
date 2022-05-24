@@ -21,7 +21,7 @@ const AdminSidebar = () => {
 
   return (
     <div className={menu ? "admin-sidebar active" : "admin-sidebar"}>
-      <div className="ham-menu" onClick={() => setMenu(prev => !prev)}>
+      <div className="ham-menu" onClick={() => setMenu((prev) => !prev)}>
         {menu ? (
           <MdClose className="admin-icon" />
         ) : (
@@ -82,7 +82,9 @@ const AdminSidebar = () => {
           </li>
           <li>
             <MdLogout className="admin-icon" />
-            <span>خروج</span>
+            <Link to="/">
+              <span>خروج</span>
+            </Link>
           </li>
         </ul>
       </div>

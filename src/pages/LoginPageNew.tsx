@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { Formik, FormikHelpers, Form, Field, ErrorMessage } from "formik";
+import { BsInstagram, BsWhatsapp, BsYoutube } from "react-icons/bs";
 import * as Yup from "yup";
 import "../styles/loginPageNew.scss";
-// import { YoutubeSearchedFor, YouTube, Instagram, WhatsApp } from "@material-ui/icons";
+
 
 //enum for showing area
 enum Area {
@@ -43,6 +44,7 @@ const LoginPageNew = () => {
     setArea(Area.step1);
   }, []);
 
+
   return (
     <main id="login-page-new" className="light">
       <div className="login-container">
@@ -68,11 +70,10 @@ const LoginPageNew = () => {
               <Form className="form-step1">
                 <label className="form-group">
                   <Field
-                    type="tel"
+                    type="text"
                     placeholder="09123456789"
                     name="phoneNumber"
                     id="phoneNumber"
-                    maxLength="11"
                   />
                   <i className="fas fa-phone-alt"></i>
                 </label>
@@ -121,9 +122,9 @@ const LoginPageNew = () => {
         )}
       </div>
       <div className="login-page-new-footer">
-        {/* <a href="#"><YouTube className="icon" /></a> */}
-        {/* <a href="#"><Instagram className="icon" /></a> */}
-        {/* <a href="#"><WhatsApp className="icon" /></a> */}
+        <a href="#"><BsYoutube className="icon" /></a>
+        <a href="#"><BsInstagram className="icon" /></a>
+        <a href="#"><BsWhatsapp className="icon" /></a>
         <p>آکادمی زبان Bad Teacher</p>
       </div>
     </main>
