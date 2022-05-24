@@ -8,9 +8,7 @@ const useCloseDropDown = (ref: any, callback: Function) => {
       if (!ref?.current?.contains(e.target)) callback();
     };
 
-    window.addEventListener("click", clickOutSide, true);
-    console.log("maskhare bazi");
-    
+    window.addEventListener("click", clickOutSide, true);   
 
     return () => window.removeEventListener("click", clickOutSide, true);
   }, [ref]);

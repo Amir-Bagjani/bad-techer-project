@@ -1,9 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type UseThemeType = ReturnType<typeof useTheme>;
 
 const useTheme = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useLocalStorage("admin-theme", false);
 
   return {
     isDark,
