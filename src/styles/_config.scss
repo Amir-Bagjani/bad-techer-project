@@ -1,3 +1,64 @@
+//margin and padding
+$spacemaounts: (0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5);
+@each $space in $spacemaounts {
+  //all around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+  //all around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  //vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  //vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+  //horizontal margin
+  .my-#{$space} {
+    margin: 0 #{$space}rem;
+  }
+  //horizontal padding
+  .py-#{$space} {
+    padding: 0 #{$space}rem;
+  }
+  //padding top
+  .pt-#{$space} {
+    padding-top: #{$space}rem;
+  }
+  //padding right
+  .pr-#{$space} {
+    padding-right: #{$space}rem;
+  }
+  //padding bottom
+  .pb-#{$space} {
+    padding-bottom: #{$space}rem;
+  }
+  //padding left
+  .pl-#{$space} {
+    padding-left: #{$space}rem;
+  }
+  //margin top
+  .mt-#{$space} {
+    margin-top: #{$space}rem;
+  }
+  //margin right
+  .mr-#{$space} {
+    margin-right: #{$space}rem;
+  }
+  //margin bottom
+  .mb-#{$space} {
+    margin-bottom: #{$space}rem;
+  }
+  //margin left
+  .ml-#{$space} {
+    margin-left: #{$space}rem;
+  }
+}
+
 //functions and mixins
 @mixin title-text($size) {
   color: var(--heading-color);
@@ -91,7 +152,7 @@
     margin: 3rem 0;
   }
 
-  input[type="checkbox"]{
+  input[type="checkbox"] {
     accent-color: var(--main-color);
   }
 }
