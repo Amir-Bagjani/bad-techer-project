@@ -1,0 +1,38 @@
+@import "config";
+
+#blogs-page {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary-color);
+  .blog-container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    &-sidebar {
+      @include blog-sidebar;
+    }
+    &-content {
+      flex: 7;
+      border-radius: 1rem;
+
+      & > a > .course-box {
+        @include course-box;
+        max-height: 20rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  #blogs-page {
+    .blog-container {
+      flex-direction: column;
+      align-items: unset;
+      &-content {
+        & > a > .course-box {
+          max-height: unset;
+        }
+      }
+    }
+  }
+}

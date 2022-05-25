@@ -1,0 +1,349 @@
+//functions and mixins
+@mixin title-text($size) {
+  color: var(--heading-color);
+  font-size: $size;
+  font-weight: bold;
+}
+@mixin grap-text($size) {
+  color: var(--font-color);
+  font-size: $size;
+}
+@mixin grid($val, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 1.5rem;
+  row-gap: $gap;
+}
+@mixin flex($val) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  & > * {
+    flex: 1 1 $val;
+  }
+}
+@mixin form {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  padding: 2rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  background-color: var(--bg-card-color);
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .inputBox {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 3rem;
+      left: 0.5rem;
+      font-size: 2rem;
+      color: var(--font-color);
+    }
+
+    input,
+    textarea {
+      @include grap-text(2rem);
+      width: 100%;
+      background: none;
+      margin: 3rem 0;
+      padding: 0.5rem 0;
+      border-bottom: var(--border);
+
+      &:focus {
+        border-color: var(--main-color);
+        border-width: 2px;
+      }
+    }
+    textarea {
+      height: 10rem;
+      resize: none;
+    }
+
+    label {
+      @include grap-text(2rem);
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      transition: all 0.2s ease-in-out;
+    }
+
+    input:focus ~ label,
+    input:valid ~ label,
+    textarea:focus ~ label,
+    textarea:valid ~ label {
+      top: -0.5rem;
+      font-size: 1.4rem;
+      color: var(--font-color);
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    height: 5rem;
+    margin: 3rem 0;
+  }
+
+  input[type="checkbox"]{
+    accent-color: var(--main-color);
+  }
+}
+@mixin course-box {
+  display: flex;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background-color: var(--bg-card-color);
+  transition: transform 0.2s ease;
+  box-shadow: var(--box-shadow);
+  min-height: 20rem;
+
+  .image {
+    flex: 0.8;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem;
+    h3 {
+      @include title-text(2.1rem);
+    }
+    h4 {
+      @include title-text(1.8rem);
+    }
+    p {
+      @include grap-text(1.5rem);
+      line-height: 2.8rem;
+      &.active {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+    &-btn {
+      font-family: "IRANSans", Arial, Helvetica, sans-serif;
+      background-color: var(--main-color);
+      color: #fff;
+      font-size: 1.3rem;
+      padding: 0.4rem 1rem;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      margin-top: auto;
+    }
+  }
+
+  &.active {
+    @media (max-width: 678px) {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    .image {
+      flex: 1;
+      img {
+        height: 14rem;
+      }
+    }
+    .content {
+      h3 {
+        margin-bottom: 1rem;
+      }
+      p {
+        line-height: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+@mixin blog-box {
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-card-color);
+
+  img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 2rem;
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: var(--border);
+
+      a {
+        font-size: 1.5rem;
+        color: var(--heading-color);
+
+        &:hover {
+          color: var(--main-color);
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    h3 {
+      @include title-text(2.2rem);
+      padding: 0.5rem 0;
+      line-height: 1.8;
+    }
+
+    p {
+      @include grap-text(1.5rem);
+      line-height: 1.8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+@mixin blog-sidebar {
+  flex: 3;
+  position: sticky;
+  top: 0.1rem;
+
+  & > div {
+    padding: 2rem;
+    background-color: var(--bg-card-color);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+  }
+
+  a.network {
+    display: block;
+    cursor: pointer;
+    padding: 2rem 0;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    i {
+      margin-right: 2rem;
+      font-size: 2.5rem;
+    }
+
+    &.whatsapp {
+      background-color: #25d366;
+    }
+    &.youtube {
+      background-color: #ff0000;
+    }
+    &.instagram {
+      background: linear-gradient(
+        45deg,
+        #405de6,
+        #5851db,
+        #833ab4,
+        #c13584,
+        #e1306c,
+        #fd1d1d
+      );
+    }
+  }
+
+  .heading {
+    h2 {
+      font-size: 2rem;
+    }
+    margin-bottom: 1.5rem;
+  }
+
+  .side-course-container {
+    .box {
+      max-width: 40rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      height: 8rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      &:hover {
+        background-color: var(--bg-primary-color);
+      }
+      img {
+        width: 30%;
+        height: 100%;
+        object-fit: cover;
+      }
+      h3 {
+        @include title-text(1.5rem);
+      }
+    }
+  }
+
+  .side-quick-links {
+    a {
+      @include title-text(1.5rem);
+      display: block;
+      margin-bottom: 1rem;
+      margin-right: 2rem;
+      i {
+        margin-left: 1rem;
+      }
+      &:hover {
+        text-decoration: 2px underline;
+      }
+    }
+  }
+}
+@mixin breadcrumbs {
+  @include title-text(1.7rem);
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--bg-card-color);
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  li {
+    a:hover {
+      text-decoration: 0.2rem underline;
+      text-underline-offset: 0.8rem;
+    }
+    &:after {
+      content: "/";
+      margin-right: 1.5rem;
+    }
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}

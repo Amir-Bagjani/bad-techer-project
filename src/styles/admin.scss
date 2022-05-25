@@ -1,0 +1,58 @@
+.admin-home {
+  font-family: "IRANSans", arial, helvetica, sans-serif;
+  display: flex;
+  background-color: #fff;
+
+  .admin-icon {
+    cursor: pointer;
+  }
+
+  .home-container {
+    flex: 6;
+    overflow-x: hidden;
+
+    .widgets{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .charts {
+      display: flex;
+      width: 100%;
+      gap: 2rem;
+      padding: 0.5rem 2rem;
+    }
+
+    .list-container {
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.5);
+      padding: 2rem;
+      margin: 2rem;
+      ::-webkit-scrollbar {
+        height: 0.7rem;
+      }
+
+
+      .list-title{
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  .admin-home {
+    overflow-y: auto !important;
+    .home-container {
+      .charts{
+        flex-flow: column-reverse;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+.admin-chart{
+    flex: 4;
+    max-width: 100% !important;
+    color: gray;
+    padding: 2rem;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.5);
+    .admin-chart-{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100% !important;
+    }
+
+    .title{
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .chart-grid{
+        stroke: rgba(211, 211, 211, 0.578);
+    }
+}

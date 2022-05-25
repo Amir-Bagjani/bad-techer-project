@@ -1,0 +1,40 @@
+@import "config";
+
+#courses-page {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var( --bg-primary-color);
+  .heading {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .courses-popular {
+    width: 65%;
+    margin-inline: auto;
+
+    & > * {
+      @include course-box;
+      box-shadow: 0 0 0 3px var(--main-color);
+    }
+  }
+
+  .courses-container {
+    @include grid(35rem, 3rem);
+    margin-top: 10rem;
+
+    & > * {
+      @include course-box;
+      &:hover {
+        transform: translateY(-0.2rem);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #courses-page {
+    .courses-popular {
+      width: 90%;
+    }
+  }
+}

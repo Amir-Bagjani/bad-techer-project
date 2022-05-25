@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import AboutPage from "./pages/AboutPage";
+import Admin from "./pages/Admin";
+import AdminList from "./pages/AdminList";
+import AdminListDetail from "./pages/AdminListDetail";
+import AdminNew from "./pages/AdminNew";
+import LoginPageNew from "./pages/LoginPageNew";
+import { ThemeContextProvider } from "./context/themeContext"
+
+import { userInputs, productInputs } from "./formSource"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContextProvider>
+      <Routes>
+        <Route path="/about-me" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPageNew />} />
+        <Route path="/admin">
+            <Route index element={<Admin />} />
+            <Route path="users" element={<AdminList />} />
+            <Route path="users/:userID" element={<AdminListDetail />} />
+            <Route path="users/new" element={<AdminNew inputs={userInputs} title="اضافه کردن کاربر جدید" />} />
+            <Route path="products" element={<AdminList />} />
+            <Route path="products/:productId" element={<AdminListDetail />} />
+            <Route path="products/new" element={<AdminNew inputs={productInputs} title="اضافه کردن محصول جدید" />} />
+          </Route>
+        <Route path="*" element={<Layout />} />
+      </Routes>
+    </ThemeContextProvider>
   );
 }
 

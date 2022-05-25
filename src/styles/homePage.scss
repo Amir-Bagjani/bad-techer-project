@@ -1,0 +1,219 @@
+@import "config";
+
+%d-flex {
+  display: flex;
+  align-items: center;
+}
+
+#hero {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  padding-top: 0 !important;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: url(../../public/images/hero-bg-2.webp) no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh; 
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    z-index: -1;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+  }
+  .hero-content {
+    position: absolute;
+    bottom: 2rem;
+    padding: 2rem;
+
+    h1 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 4rem;
+      padding-bottom: 1rem;
+      // font-family: Allan;
+      span{
+        // font-family: "IRANSans", Arial, Helvetica, sans-serif;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-size: 2rem;
+      padding-bottom: 3rem;
+    }
+
+    a {
+      color: #fff;
+      padding: 1rem 3.5rem;
+      border: 1.5px solid #fff;
+      font-size: 2em;
+      transition: all 0.1s ease;
+
+      &:hover {
+        background-color: #0b0b0b;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#courses {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary-color);
+  padding-top: 2rem;
+
+  .courses-container {
+    margin-top: 8rem;
+    @include grid(28rem, 8rem);
+
+    .box {
+      background-color: var(--bg-card-color);
+      border-radius: 2rem;
+      border: var(--border);
+      text-align: center;
+      transition: 0.2s linear;
+
+      &:hover {
+        box-shadow: var(--box-shadow);
+      }
+
+      & > img {
+        height: 10rem;
+        width: 10rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-top: -5rem;
+      }
+
+      &-content {
+        padding: 2rem;
+        h5 {
+          @include title-text(2.3rem);
+          padding-bottom: 1.5rem;
+        }
+
+        p {
+          @include grap-text(1.4rem);
+          padding-bottom: 1.5rem;
+        }
+      }
+
+      &-footer {
+        @extend %d-flex;
+        flex-direction: row-reverse;
+        gap: 0.7rem;
+        border-top: var(--border);
+        padding: 1rem 2.5rem;
+
+        & > img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .author-name {
+          margin-right: auto;
+          @include grap-text(1rem);
+        }
+
+        .price {
+          @include grap-text(1.5rem);
+          border: 1px dashed var(--font-color);
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: var(--bg-color);
+        }
+      }
+    }
+  }
+
+  .features-container {
+    @extend %d-flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .feature-image {
+      flex: 1.1;
+      img {
+        width: 100%;
+      }
+    }
+
+    .features-content {
+      flex: 0.8;
+      .box {
+        @extend %d-flex;
+        gap: 1.5rem;
+        background-color: var(--bg-card-color);
+        border-radius: 2rem;
+        padding: 1.5rem;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 2rem;
+
+        i {
+          font-size: 6rem;
+          color: var(--heading-color);
+        }
+
+        .content {
+          h3 {
+            @include title-text(2rem);
+            padding-bottom: 1.5rem;
+          }
+          p {
+            @include grap-text(1.5rem);
+          }
+        }
+      }
+    }
+  }
+
+  .courses-btn {
+    text-align: center;
+    margin-top: 3rem;
+  }
+}
+
+#blog {
+  font-family: "IRANSans", Arial, Helvetica, sans-serif;
+
+  .box-container {
+    @include grid(26rem, 1.5rem);
+
+    & > * {
+      @include blog-box;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .hero-content {
+      position: unset;
+      text-align: center;
+    }
+  }
+  #courses {
+    .features-container {
+      flex-direction: column;
+      .features-content {
+        flex: 1;
+      }
+    }
+  }
+}
